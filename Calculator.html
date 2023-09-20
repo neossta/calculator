@@ -1,0 +1,1086 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <style>
+        @font-face {
+            font-family: "TT Firs Neue";
+            font-style: normal;
+            font-weight: 400;
+            src: url("/fonts/TTFirsNeue-Regular.woff") format("woff");
+            font-display: swap;
+        }
+
+        @font-face {
+            font-family: "TT Firs Neue";
+            font-style: normal;
+            font-weight: 500;
+            src: url("/fonts/TTFirsNeue-Medium.woff") format("woff");
+            font-display: swap;
+        }
+
+        @font-face {
+            font-family: "TT Firs Neue";
+            font-style: normal;
+            font-weight: 300;
+            src: url("/fonts/TTFirsNeue-Light.woff") format("woff");
+            font-display: swap;
+        }
+
+        * {
+            padding: 0px;
+            margin: 0px;
+            border: none;
+        }
+
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+        }
+
+        a,
+        a:link,
+        a:visited {
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: none;
+        }
+
+        footer,
+        header,
+        section {
+            display: block;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6,
+        p {
+            font-size: inherit;
+            font-weight: inherit;
+        }
+
+        ul,
+        ul li {
+            list-style: none;
+        }
+
+        img,
+        svg {
+            max-width: 100%;
+            height: auto;
+        }
+
+        input,
+        textarea,
+        button,
+        select {
+            font-family: inherit;
+            font-size: inherit;
+            color: inherit;
+            background-color: transparent;
+        }
+
+        input::-ms-clear {
+            display: none;
+        }
+
+        button,
+        input[type="submit"] {
+            display: inline-block;
+            box-shadow: none;
+            background-color: transparent;
+            background: none;
+            cursor: pointer;
+        }
+
+        input:focus,
+        input:active,
+        button:focus,
+        button:active {
+            outline: none;
+        }
+
+        button::-moz-focus-inner {
+            padding: 0;
+            border: 0;
+        }
+
+        input[type="number"]::-webkit-inner-spin-button,
+        input[type="number"]::-webkit-outer-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
+
+        input[type="number"] {
+            -moz-appearance: textfield;
+        }
+
+        html,
+        body {
+            background: #13131D;
+            margin: 0;
+            padding: 0;
+            font-family: "TT Firs Neue", "Arial", sans-serif;
+        }
+
+        header {
+            color: #F8F8F4;
+            font-size: 90px;
+            line-height: 100%;
+            /* 90px */
+            letter-spacing: -4.5px;
+            text-transform: uppercase;
+            margin-bottom: 44px;
+            margin-left: 40px;
+            margin-right: 40px;
+        }
+        @media screen and (max-width: 540px) {
+            header {
+                font-size: 32px;
+                letter-spacing: -1.6px;
+            }
+        }
+
+        .section-header-1,
+        .section-header-2 {
+            width: 100%;
+        }
+
+        .section-header-1 {
+            text-align: center;
+        }
+
+        .section-header-2 {
+            text-align: end;
+        }
+
+        .wrapper {
+            min-height: 100%;
+            overflow: hidden;
+        }
+
+        .content-section {
+            max-width: 1363px;
+            margin: 0 auto 230px auto;
+        }
+        @media screen and (max-width: 540px) {
+            .content-section {
+                width: 100vw;
+        }
+    }
+        .row {
+            display: flex;
+            flex-direction: row;
+            padding-bottom: 60px;
+            margin-left: 40px;
+            margin-right: 40px;
+        }
+        @media screen and (max-width: 540px) {
+            .row {
+                flex-direction: column;
+                align-items: flex-start;
+                margin-left: 9.5px;
+                margin-right: 9.5px;
+                padding-bottom: 45px;
+                width: 95%;
+            }
+        }
+
+        .tabs {
+            display: flex;
+            flex-direction: row;
+            gap: 15px;
+            flex-wrap: wrap;
+            padding-left: 25px;
+        }
+        @media screen and (max-width: 540px) {
+            .tabs {
+                flex-direction: column;
+                align-items: stretch;
+                padding-left: 0;
+                width: 100%;
+            }
+        }
+        .tabs__item {
+            max-width: 330px;
+            min-width: 270px;
+            height: 78px;
+            display: flex;
+            gap: 20px;
+            align-items: center;
+            padding-left: 25px;
+            /* flex: auto; */
+            flex-shrink: 1;
+            border-radius: 2px;
+            border: 0.4px solid rgba(255, 255, 255, 0.14);
+            background: rgba(68, 68, 96, 0.21);
+            color: #A9A9D2;
+            font-size: 20px;
+            line-height: 145%;
+            /* 29px */
+            text-transform: uppercase;
+        }
+        @media screen and (max-width: 540px) {
+            .tabs__item {
+                max-width: 520px;
+                font-size: 18px;
+            }
+        }
+
+        .tabs__item:hover {
+            cursor: pointer;
+            background: #FFF;
+            color: #13131D;
+        }
+
+        .tabs__item:hover svg path {
+            fill: #13131D;
+        }
+
+        .row__instruction {
+            max-width: 311px;
+            height: 78px;
+            color: #F8F8F4;
+            font-size: 20px;
+            line-height: 130%;
+            /* 26px */
+            text-transform: uppercase;
+            /* margin-right: 20px; */
+            margin-bottom: 36px;
+        }
+        @media screen and (max-width: 540px) {
+            .row__instruction {
+                max-width: 100%;
+                margin-bottom: 0;
+                font-size: 16px;
+            }
+        }
+
+        .input-container {
+            border-top: 1px solid rgb(27%, 27%, 38%, 0.4);
+            padding-top: 45px;
+            display: flex;
+            flex-direction: column;
+            width: 300px;
+            height: 207px;
+            flex-shrink: 0;
+            position: relative;
+        }
+        @media screen and (max-width: 540px) {
+            .input-container {
+                border-top: none;
+                padding-top: 0;
+                width: 100%;
+            }
+        }
+
+        .input-container label {
+            color: #F8F8F4;
+            font-size: 20px;
+            font-style: normal;
+            font-weight: 500;
+            line-height: 20px;
+            text-transform: uppercase;
+        }
+
+        .area {
+            display: flex;
+            flex-direction: row;
+            align-items: baseline;
+            justify-content: flex-start;
+        }
+
+        .area p {
+            color: #F8F8F4;
+            font-size: 15px;
+            font-weight: 300;
+            line-height: 140%;
+            text-transform: uppercase;
+        }
+
+        .input-container .number-input {
+            width: 100%;
+            height: 115px;
+            color: #F8F8F4;
+            font-size: 124px;
+            font-style: normal;
+            font-weight: 300;
+            line-height: 140%;
+            /* 173.6px */
+            letter-spacing: -9.92px;
+            text-transform: uppercase;
+        }
+        @media screen and (max-width: 540px) {
+            .number-input {
+                font-size: 80px;
+                letter-spacing: -6.4px;
+            }
+         }
+
+        .input-wrapper {
+            height: 174px;
+            min-width: 115px;
+            max-width: 248px;
+            padding-top: 23px;
+            padding-bottom: 36px;
+            display: flex;
+            align-items: baseline;
+        }
+
+        .input-container .input-range {
+            align-self: flex-end;
+        }
+
+        .options-container {
+            border-top: 1px solid rgb(27%, 27%, 38%, 0.4);
+            padding-top: 45px;
+            padding-left: 35px;
+            display: flex;
+            flex: auto;
+            flex-direction: row;
+            flex-wrap: wrap;
+            justify-content: start;
+            gap: 55px;
+        }
+        @media screen and (min-width:1025px) and (max-width: 1250px) {
+            .options-container {
+                gap: 25px;
+            }
+        }
+        @media screen and (max-width: 540px) {
+            .options-container {
+                border-top: none;
+                flex-direction: column;
+                align-items: stretch;
+                gap: 0;
+                background: #211D2B;
+                padding-top: 20px;
+                padding-left: 20px;
+                padding-right: 20px;
+                margin-top: 45px;
+                width: 100%;
+            }
+        }
+        .column {
+            max-width: 330px;
+            min-width: 245px;
+        }
+        @media screen and (max-width: 540px) {
+            .column {
+                max-width: 520px;
+            }
+        }
+
+        .form-control {
+            color: #FFF;
+            font-size: 18px;
+            font-weight: 300;
+            line-height: 130%;
+        }
+
+        .form-control_inactive {
+            color: #eae0da8c;
+        }
+
+        input[type="checkbox"] {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 15px;
+            height: 15px;
+            color: #FFF;
+            border: 1px solid #FFF;
+            border-radius: 50%;
+            display: grid;
+            place-content: center;
+            cursor: pointer;
+        }
+
+        input[type="checkbox"]::before {
+            content: "";
+            width: 15px;
+            height: 15px;
+            border-radius: 50%;
+            transform: scale(0);
+            transition: 120ms transform ease-in-out;
+            box-shadow: inset 1em 1em #FFF;
+        }
+
+        input[type="checkbox"]:checked::before {
+            transform: scale(1);
+        }
+
+        /* input[type="checkbox"]:focus {
+        outline: max(2px, 0.15em) solid #FFF;
+        outline-offset: max(2px, 0.15em);
+        } */
+        .option {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 15px;
+            position: relative;
+        }
+
+        .range-container {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            margin-bottom: 15px;
+        }
+
+        .range-info {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .range-info output {
+            color: #444460;
+            font-size: 26px;
+            font-weight: 300;
+            line-height: 145%;
+            height: 38px;
+        }
+
+        .input-range {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 100%;
+            height: 2px;
+            background: #444460;
+            border-radius: 2px;
+        }
+
+        .input-range_inactive {
+            background: #2d2d3d;
+        }
+
+        .input-range::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            width: 12.64px;
+            height: 13.167px;
+            border-radius: 50%;
+            border: 1px solid #FFF;
+            background: #444460;
+            cursor: pointer;
+            box-shadow: 0 0 2px 0 #555;
+        }
+        .input-range::-moz-range-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 12.64px;
+            height: 13.167px;
+            border-radius: 50%;
+            border: 1px solid #FFF;
+            background: #444460;
+            cursor: pointer;
+            box-shadow: 0 0 2px 0 #555;
+        }
+        .input-range::-ms-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 12.64px;
+            height: 13.167px;
+            border-radius: 50%;
+            border: 1px solid #FFF;
+            background: #444460;
+            cursor: pointer;
+            box-shadow: 0 0 2px 0 #555;
+        }
+        .input-range_inactive::-webkit-slider-thumb {
+            border: 1px solid #eae0da8c;
+            background: #2d2d3d;
+        }
+        .input-range_inactive::-moz-range-thumb {
+            border: 1px solid #eae0da8c;
+            background: #2d2d3d;
+        }
+        .input-range_inactive::-ms-thumb {
+            border: 1px solid #eae0da8c;
+            background: #2d2d3d;
+        }
+        .input-range::-webkit-slider-runnable-track {
+            -webkit-appearance: none;
+            box-shadow: none;
+            border: none;
+            background: transparent;
+        }
+        .input-range::-moz-range-track {
+            -webkit-appearance: none;
+            appearance: none;
+            box-shadow: none;
+            border: none;
+            background: transparent;
+        }
+        .input-range::-ms-track {
+            -webkit-appearance: none;
+            appearance: none;
+            box-shadow: none;
+            border: none;
+            background: transparent;
+        }
+        .row_results {
+            border-top: 1px solid rgb(27%, 27%, 38%, 0.4);
+            border-bottom: 1px solid rgb(27%, 27%, 38%, 0.4);
+            padding-bottom: 0;
+            text-transform: uppercase;
+            flex-wrap: wrap;
+            column-gap: 150px; 
+        }
+        @media screen and (max-width: 1024px) {
+            .row_results {
+                column-gap: 30px;
+                border-top: none; 
+                }
+}
+
+        .result-container {
+            padding-top: 35px;
+        }
+
+        .result-container:first-child {
+            margin-right: auto; 
+        }
+
+        .result-container p {
+            color: #F8F8F4;
+            font-size: 20px;
+            font-weight: 500;
+            line-height: 20px;
+            /* 100% */
+        }
+
+        .result-container .number {
+            color: #F8F8F4;
+            font-size: 124px;
+            font-weight: 300;
+            line-height: 140%;
+            /* 173.6px */
+        }
+        @media screen and (max-width: 540px) {
+            .result-container .number {
+                font-size: 80px;
+            } 
+        }
+
+        .budget,
+        .time {
+            display: flex;
+            align-items: baseline;
+        }
+
+        .time__month,
+        .time__year {
+            color: #F8F8F4;
+            font-size: 15px;
+            font-weight: 400;
+            line-height: 140%;
+        }
+
+        .time__year {
+            margin-right: 19px;
+        }
+
+        .budget__millions {
+            color: #F8F8F4;
+            font-size: 15px;
+            font-weight: 300;
+            line-height: 140%;
+        }
+
+        .buttons-container {
+            padding-top: 35px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .buttons-container button {
+            cursor: pointer;
+            width: 304px;
+            height: 70px;
+            background: #FFF;
+            color: #000000;
+            padding: 15px 45px;
+            font-size: 16px;
+            font-weight: 500;
+            line-height: 20px;
+            /* 125% */
+            text-align: center;
+            text-transform: uppercase;
+        }
+        @media screen and (max-width: 540px) {
+            .buttons-container button {
+                width: 100%;
+            }
+        }
+
+        .info {
+            width: 14px;
+            height: 14px;
+            border-radius: 50%;
+            background-color: #FFF;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #444460;
+            font-size: 11.667px;
+            font-weight: 500;
+            line-height: 11.667px;
+            /* 100% */
+        }
+        @media screen and (max-width: 540px) {
+            .info {
+                display: none;
+            }
+        }
+
+        .input-container .info {
+            position: absolute;
+            right: 0;
+            top: 45px;
+            z-index: 10;
+        }
+
+        .info:hover {
+            cursor: pointer;
+            box-shadow: 0 0 0.5px 5px #444460;
+        }
+
+        .option .info {
+            margin-left: auto;
+        }
+
+        .info:hover::before {
+            border-radius: 8px;
+            width: 257px;
+            padding: 15px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+            background: #444460;
+            color: #FFF;
+            font-size: 14px;
+            font-weight: 300;
+            line-height: 130%;
+            /* 18.2px */
+        }
+
+        .input-container .info:hover::before {
+            content: "Вы можете выбрать количество соток, передвигая ползунок, или сразу ввести в поле нужное вам количество";
+            position: absolute;
+            right: 5px;
+            bottom: 10px;
+            z-index: -1
+        }
+
+        .option .info:hover::before {
+            content: "Нажмите на +, чтобы добавить ещё один гараж";
+            position: absolute;
+            bottom: 15px;
+            right: 5px;
+        }
+    </style>
+    <title>Calculator</title>
+</head>
+
+<body>
+    <div class="wrapper">
+        <div class="content-section">
+            <header>
+                <div class="section-header-1">Стоимость и сроки &mdash;</div>
+                <div class="section-header-2">это просто</div>
+            </header>
+            <div class="row">
+                <div class="row__instruction">
+                    выберите эксклюзивность отделки и благоустройства
+                </div>
+                <div class="tabs">
+                    <div class="tabs__item">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 25 25" fill="none">
+                            <path
+                                d="M23.7932 14.2993C23.2811 14.6415 22.7304 14.7259 22.1121 14.6978C22.1072 17.1685 22.1314 19.5876 22.0976 22.0489C22.0734 23.3617 20.9189 24.4634 19.5663 24.4868C18.2137 24.5103 16.8562 24.4962 15.4988 24.4915C15.064 24.4915 14.7742 24.1868 14.7742 23.7367C14.7693 22.6256 14.7742 21.5145 14.7693 20.4034C14.7693 19.672 14.7693 18.9359 14.7693 18.2046C14.7645 17.4498 14.2766 16.9669 13.4892 16.9575C12.7501 16.9481 12.011 16.9481 11.2719 16.9575C10.5038 16.9669 10.0111 17.4545 10.0111 18.1999C10.0062 20.0142 10.0062 21.8239 10.0062 23.6383C10.0062 24.243 9.74537 24.4962 9.11737 24.4962C7.89036 24.4962 6.66335 24.4962 5.43634 24.4962C3.81805 24.4915 2.66833 23.3945 2.65867 21.8192C2.64901 19.447 2.65384 17.07 2.65384 14.6978C0.412374 14.904 -0.891926 12.4568 0.71188 10.8768C4.02577 7.6607 7.33966 4.44456 10.6584 1.2331C10.8661 1.02213 11.1076 0.848665 11.3733 0.708017C12.1462 0.332957 13.3491 0.450163 14.0834 1.18153C15.9432 3.03339 17.8417 4.84774 19.7257 6.67616C21.1701 8.08264 22.6048 9.49849 24.0733 10.8862C25.0395 11.8004 24.9477 13.5538 23.7932 14.2993Z"
+                                fill="#A9A9D2" />
+                        </svg>
+                        Стандарт
+                    </div>
+                    <div class="tabs__item">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="27" height="25" viewBox="0 0 27 25" fill="none">
+                            <path
+                                d="M26.0475 11.3455L22.0325 7.43946V2.92727C22.0325 2.11141 21.3529 1.45021 20.513 1.45021C19.6751 1.45021 18.9955 2.11141 18.9955 2.92727V4.48498L16.006 1.57648C14.528 0.139324 11.9582 0.141873 10.4835 1.57908L0.44447 11.3455C-0.148157 11.9232 -0.148157 12.858 0.44447 13.4348C1.03736 14.0123 2.00005 14.0123 2.59273 13.4348L12.6308 3.66807C12.9578 3.3516 13.5342 3.3516 13.8595 3.66713L23.8993 13.4348C24.197 13.7236 24.5851 13.8672 24.9731 13.8672C25.362 13.8672 25.7507 13.7234 26.0475 13.4348C26.6404 12.858 26.6404 11.9233 26.0475 11.3455Z"
+                                fill="#A9A9D2" />
+                            <path
+                                d="M13.7735 6.47243C13.4818 6.18884 13.0095 6.18884 12.7187 6.47243L3.88837 15.0607C3.74896 15.1962 3.66992 15.3814 3.66992 15.5745V21.8385C3.66992 23.3084 4.89496 24.5001 6.40578 24.5001H10.7777V17.9131H15.7135V24.5001H20.0855C21.5963 24.5001 22.8213 23.3083 22.8213 21.8385V15.5745C22.8213 15.3814 22.743 15.1962 22.6028 15.0607L13.7735 6.47243Z"
+                                fill="#A9A9D2" />
+                        </svg>
+                        Персонально
+                    </div>
+                    <div class="tabs__item">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="26" height="25" viewBox="0 0 26 25" fill="none">
+                            <path
+                                d="M21.5474 6.78577C23.2002 6.78577 24.54 5.37865 24.54 3.64288C24.54 1.90712 23.2002 0.5 21.5474 0.5C19.8946 0.5 18.5547 1.90712 18.5547 3.64288C18.5547 5.37865 19.8946 6.78577 21.5474 6.78577Z"
+                                fill="#A9A9D2" />
+                            <path d="M17.3574 17.6426H19.7516V19.3569H17.3574V17.6426Z" fill="#A9A9D2" />
+                            <path
+                                d="M13.882 7.01603C14.2823 6.67349 14.7973 6.48488 15.3323 6.48488C15.8672 6.48488 16.3823 6.67353 16.7825 7.01603L17.3576 7.50821V5.74971C17.3576 2.85499 14.9166 0.5 11.9162 0.5C9.28802 0.5 7.08912 2.30703 6.58398 4.7009C7.41017 5.91157 8.85807 8.27804 9.47736 10.7858L13.882 7.01603Z"
+                                fill="#A9A9D2" />
+                            <path
+                                d="M24.4034 23.0869H23.3882V16.4071L23.8666 16.8124C24.0065 16.931 24.1807 16.9893 24.3541 16.9893C24.557 16.9893 24.759 16.9095 24.9042 16.7531C25.1736 16.4631 25.1458 16.0194 24.8421 15.7621L22.6873 13.9365V10.2982C22.6873 9.91047 22.3582 9.59615 21.9523 9.59615C21.5463 9.59615 21.2172 9.91047 21.2172 10.2982V12.6909L15.807 8.10709C15.5286 7.87129 15.1097 7.87129 14.8314 8.10709L5.79632 15.762C5.49265 16.0193 5.46486 16.463 5.73421 16.7531C6.00361 17.0431 6.46823 17.0696 6.77186 16.8124L7.25027 16.407V23.0868H4.87803V20.0241C5.19202 19.9324 5.49417 19.7819 5.78026 19.5756V18.3375C5.34088 18.2389 4.93916 18.0128 4.63455 17.6849C3.82772 16.8162 3.91123 15.4824 4.82073 14.7118L8.13841 11.9009C7.57997 8.49825 4.86256 4.95053 4.73422 4.7846C4.59562 4.60547 4.37624 4.49976 4.14303 4.49976C3.90981 4.49976 3.69044 4.60547 3.55183 4.7846C3.40871 4.96958 0.0472818 9.35754 0.0472818 13.0619C0.0472818 14.8699 0.4248 16.5807 1.11031 17.8792C1.71501 19.0246 2.5135 19.7634 3.40797 20.0241V23.0869H0.735053C0.329107 23.0869 0 23.4012 0 23.7889C0 24.1766 0.329107 24.4909 0.735053 24.4999H23.3882H24.4034C24.8094 24.4909 25.1385 24.1766 25.1385 23.7889C25.1385 23.4012 24.8093 23.0869 24.4034 23.0869ZM16.1757 17.17C16.1757 16.7823 16.5048 16.4679 16.9107 16.4679H20.4629C20.8688 16.4679 21.1979 16.7823 21.1979 17.17V20.5626C21.1979 20.9502 20.8688 21.2646 20.4629 21.2646H16.9107C16.5048 21.2646 16.1757 20.9502 16.1757 20.5626V17.17ZM12.1506 23.0869V17.872H10.6805V23.0869H9.21048V17.17C9.21048 16.7822 9.53959 16.4679 9.94553 16.4679H12.8857C13.2916 16.4679 13.6207 16.7823 13.6207 17.17V23.0869H12.1506Z"
+                                fill="#A9A9D2" />
+                        </svg>
+                        Эксклюзивно
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-container">
+                    <div class="info">
+                        !
+                    </div>
+                    <label for="range">Участок</label>
+                    <div class="area">
+                        <div class="input-wrapper">
+                            <input type="number" class="number-input" id="rangevalueplot" value="50"
+                                oninput="range.value=value">
+                        </div>
+                        <p>соток</p>
+                    </div>
+                    <input type="range" class="input-range" value="50" min="0" max="100" id="range"
+                        oninput="rangevalueplot.value=value" />
+                </div>
+                <div class="options-container">
+                    <div class="column">
+                        <div class="option">
+                            <input type="checkbox" name="r1" id="r1">
+                            <label class="form-control" for="r1">Терраса</label>
+                        </div>
+                        <div class="option">
+                            <input type="checkbox" name="r1" id="r1">
+                            <label class="form-control" for="r1">Гриль</label>
+                        </div>
+                        <div class="option">
+                            <input type="checkbox" name="r1" id="r1">
+                            <label class="form-control" for="r1">Кострище</label>
+                        </div>
+                        <div class="option">
+                            <input type="checkbox" name="r1" id="r1">
+                            <label class="form-control" for="r1">Беседка</label>
+                        </div>
+                        <div class="option">
+                            <input type="checkbox" name="r1" id="r1">
+                            <label class="form-control" for="r1">Водоём</label>
+                        </div>
+                        <div class="option">
+                            <input type="checkbox" name="r1" id="r1">
+                            <label class="form-control" for="r1">Открытый бассейн</label>
+                        </div>
+                    </div>
+                    <div class="column">
+                        <div class="option">
+                            <input type="checkbox" name="r1" id="r1">
+                            <label class="form-control" for="r1">Ручей/фонтан</label>
+                        </div>
+                        <div class="option">
+                            <input type="checkbox" name="r1" id="r1">
+                            <label class="form-control" for="r1">Оранжерея</label>
+                        </div>
+                        <div class="option">
+                            <input type="checkbox" name="r1" id="r1">
+                            <label class="form-control" for="r1">Сад</label>
+                        </div>
+                        <div class="option">
+                            <input type="checkbox" name="r1" id="r1">
+                            <label class="form-control" for="r1">Огород</label>
+                        </div>
+                        <div class="option">
+                            <input type="checkbox" name="r1" id="r1">
+                            <label class="form-control" for="r1">Спорт площадка</label>
+                        </div>
+                        <div class="option">
+                            <input type="checkbox" name="r1" id="r1">
+                            <label class="form-control" for="r1">Детская площадка</label>
+                        </div>
+                        <div class="option">
+                            <input type="checkbox" name="r1" id="r1">
+                            <label class="form-control" for="r1">Сад камней</label>
+                        </div>
+                    </div>
+                    <div class="column">
+                        <div class="option">
+                            <input type="checkbox" name="r1" id="r1">
+                            <label class="form-control" for="r1">+ Гараж</label>
+                            <div class="info">
+                                !
+                            </div>
+                        </div>
+                        <div class="option">
+                            <input type="checkbox" name="r1" id="r1">
+                            <label class="form-control" for="r1">- Гараж</label>
+                        </div>
+                        <div class="option">
+                            <input type="checkbox" name="r1" id="r1">
+                            <label class="form-control" for="r1">Гараж сезон.техники</label>
+                        </div>
+                        <div class="option">
+                            <input type="checkbox" name="r1" id="r1">
+                            <label class="form-control" for="r1">+ Навес</label>
+                        </div>
+                        <div class="option">
+                            <input type="checkbox" name="r1" id="r1">
+                            <label class="form-control" for="r1">- Навес</label>
+                        </div>
+                        <div class="option">
+                            <input type="checkbox" name="r1" id="r1">
+                            <label class="form-control" for="r1">Мойка машины</label>
+                        </div>
+                        <div class="option">
+                            <input type="checkbox" name="r1" id="r1">
+                            <label class="form-control" for="r1">Хозблок</label>
+                        </div>
+                        <div class="option">
+                            <input type="checkbox" name="r1" id="r1">
+                            <label class="form-control" for="r1">Вольер</label>
+                        </div>
+                        <div class="option">
+                            <input type="checkbox" name="r1" id="r1">
+                            <label class="form-control" for="r1">Другое</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-container">
+                    <label for="range">Дом</label>
+                    <div class="area">
+                        <div class="input-wrapper">
+                            <input type="number" class="number-input" id="rangevaluehouse" value="580"
+                                oninput="range.value=value">
+                        </div>
+                        <p>кв.м</p>
+                    </div>
+                    <input type="range" class="input-range" value="580" min="0" max="1000" id="range"
+                        oninput="rangevaluehouse.value=value" />
+                </div>
+                <div class="options-container">
+                    <div class="column">
+                        <div class="range-container">
+                            <div class="range-info">
+                                <label class="form-control" for="range">Котельная</label>
+                                <output id="rangevalue1">20</output>
+                            </div>
+                            <input type="range" class="input-range" value="20" min="0" max="100" id="range"
+                                oninput="rangevalue1.value=value" />
+                        </div>
+                        <div class="range-container">
+                            <div class="range-info">
+                                <label class="form-control form-control_inactive" for="range">Гостиная</label>
+                                <output id="rangevalue2"></output>
+                            </div>
+                            <input type="range" class="input-range input-range_inactive" value="0" min="0" max="100"
+                                id="range" oninput="rangevalue2.value=value" />
+                        </div>
+                        <div class="range-container">
+                            <div class="range-info">
+                                <label class="form-control" for="range">Кухня</label>
+                                <output id="rangevalue">50</output>
+                            </div>
+                            <input type="range" value="50" class="input-range" min="0" max="100" id="range"
+                                oninput="rangevalue.value=value" />
+                        </div>
+                        <div class="range-container">
+                            <div class="range-info">
+                                <label class="form-control" for="range">Столовая</label>
+                                <output id="rangevalue">50</output>
+                            </div>
+                            <input type="range" value="50" class="input-range" min="0" max="100" id="range"
+                                oninput="rangevalue.value=value" />
+                        </div>
+                        <div class="range-container">
+                            <div class="range-info">
+                                <label class="form-control" for="range">Кладовая</label>
+                                <output id="rangevalue">50</output>
+                            </div>
+                            <input type="range" value="50" class="input-range" min="0" max="100" id="range"
+                                oninput="rangevalue.value=value" />
+                        </div>
+                        <div class="range-container">
+                            <div class="range-info">
+                                <label class="form-control" for="range">+ Детская</label>
+                                <output id="rangevalue">50</output>
+                            </div>
+                            <input type="range" value="50" class="input-range" min="0" max="100" id="range"
+                                oninput="rangevalue.value=value" />
+                        </div>
+                        <div class="range-container">
+                            <div class="range-info">
+                                <label class="form-control" for="range">- Детская</label>
+                                <output id="rangevalue">50</output>
+                            </div>
+                            <input type="range" value="50" class="input-range" min="0" max="100" id="range"
+                                oninput="rangevalue.value=value" />
+                        </div>
+                        <div class="range-container">
+                            <div class="range-info">
+                                <label class="form-control" for="range">+ Кабинет</label>
+                                <output id="rangevalue">50</output>
+                            </div>
+                            <input type="range" value="50" class="input-range" min="0" max="100" id="range"
+                                oninput="rangevalue.value=value" />
+                        </div>
+                        <div class="range-container">
+                            <div class="range-info">
+                                <label class="form-control" for="range">- Кабинет</label>
+                                <output id="rangevalue">50</output>
+                            </div>
+                            <input type="range" value="50" class="input-range" min="0" max="100" id="range"
+                                oninput="rangevalue.value=value" />
+                        </div>
+                    </div>
+                    <div class="column">
+                        <div class="range-container">
+                            <div class="range-info">
+                                <label class="form-control" for="range">Спа</label>
+                                <output id="rangevalue">50</output>
+                            </div>
+                            <input type="range" value="50" class="input-range" min="0" max="100" id="range"
+                                oninput="rangevalue.value=value" />
+                        </div>
+                        <div class="range-container">
+                            <div class="range-info">
+                                <label class="form-control" for="range">Кинозал</label>
+                                <output id="rangevalue">50</output>
+                            </div>
+                            <input type="range" value="50" class="input-range" min="0" max="100" id="range"
+                                oninput="rangevalue.value=value" />
+                        </div>
+                        <div class="range-container">
+                            <div class="range-info">
+                                <label class="form-control" for="range">+ Гостевая</label>
+                                <output id="rangevalue">50</output>
+                            </div>
+                            <input type="range" value="50" class="input-range" min="0" max="100" id="range"
+                                oninput="rangevalue.value=value" />
+                        </div>
+                        <div class="range-container">
+                            <div class="range-info">
+                                <label class="form-control" for="range">- Гостевая</label>
+                                <output id="rangevalue">50</output>
+                            </div>
+                            <input type="range" value="50" class="input-range" min="0" max="100" id="range"
+                                oninput="rangevalue.value=value" />
+                        </div>
+                        <div class="range-container">
+                            <div class="range-info">
+                                <label class="form-control" for="range">Гостевой туалет</label>
+                                <output id="rangevalue">50</output>
+                            </div>
+                            <input type="range" value="50" class="input-range" min="0" max="100" id="range"
+                                oninput="rangevalue.value=value" />
+                        </div>
+                        <div class="range-container">
+                            <div class="range-info">
+                                <label class="form-control" for="range">Гостевая гардеробная</label>
+                                <output id="rangevalue">50</output>
+                            </div>
+                            <input type="range" value="50" class="input-range" min="0" max="100" id="range"
+                                oninput="rangevalue.value=value" />
+                        </div>
+                        <div class="range-container">
+                            <div class="range-info">
+                                <label class="form-control" for="range">Сезонная гардеробная</label>
+                                <output id="rangevalue">50</output>
+                            </div>
+                            <input type="range" value="50" class="input-range" min="0" max="100" id="range"
+                                oninput="rangevalue.value=value" />
+                        </div>
+                    </div>
+                    <div class="column">
+                        <div class="range-container">
+                            <div class="range-info">
+                                <label class="form-control" for="range">Спортзал</label>
+                                <output id="rangevalue">50</output>
+                            </div>
+                            <input type="range" value="50" class="input-range" min="0" max="100" id="range"
+                                oninput="rangevalue.value=value" />
+                        </div>
+                        <div class="range-container">
+                            <div class="range-info">
+                                <label class="form-control" for="range">Мусоросброник</label>
+                                <output id="rangevalue">50</output>
+                            </div>
+                            <input type="range" value="50" class="input-range" min="0" max="100" id="range"
+                                oninput="rangevalue.value=value" />
+                        </div>
+                        <div class="range-container">
+                            <div class="range-info">
+                                <label class="form-control" for="range">+ Мастер спальня</label>
+                                <output id="rangevalue">50</output>
+                            </div>
+                            <input type="range" value="50" class="input-range" min="0" max="100" id="range"
+                                oninput="rangevalue.value=value" />
+                        </div>
+                        <div class="range-container">
+                            <div class="range-info">
+                                <label class="form-control" for="range">- Мастер-спальня</label>
+                                <output id="rangevalue">50</output>
+                            </div>
+                            <input type="range" value="50" class="input-range" min="0" max="100" id="range"
+                                oninput="rangevalue.value=value" />
+                        </div>
+                        <div class="range-container">
+                            <div class="range-info">
+                                <label class="form-control" for="range">+ Спец.комната</label>
+                                <output id="rangevalue">50</output>
+                            </div>
+                            <input type="range" value="50" class="input-range" min="0" max="100" id="range"
+                                oninput="rangevalue.value=value" />
+                        </div>
+                        <div class="range-container">
+                            <div class="range-info">
+                                <label class="form-control" for="range">- Спец.комната</label>
+                                <output id="rangevalue">50</output>
+                            </div>
+                            <input type="range" value="50" class="input-range" min="0" max="100" id="range"
+                                oninput="rangevalue.value=value" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row row_results">
+                <div class="result-container">
+                    <p>До переезда в дом</p>
+                    <div class="time">
+                        <div class="time__number-years number">1</div>
+                        <div class="time__year">год</div>
+                        <div class="time__number-months number">4</div>
+                        <div class="time__month">месяца</div>
+                    </div>
+                </div>
+                <div class="result-container">
+                    <p>Бюджет под ключ</p>
+                    <div class="budget">
+                        <div class="budget__sum number">116</div>
+                        <div class="budget__millions">млн &#8381</div>
+                    </div>
+                </div>
+                <div class="buttons-container">
+                    <button type="button"> Получить эскиз дома</button>
+                    <button type="button"> Получить график строительства</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
