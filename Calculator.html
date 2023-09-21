@@ -144,6 +144,7 @@
             margin-left: 40px;
             margin-right: 40px;
         }
+
         @media screen and (max-width: 540px) {
             header {
                 font-size: 32px;
@@ -173,11 +174,13 @@
             max-width: 1363px;
             margin: 0 auto 230px auto;
         }
+
         @media screen and (max-width: 540px) {
             .content-section {
                 width: 100vw;
+            }
         }
-    }
+
         .row {
             display: flex;
             flex-direction: row;
@@ -185,6 +188,7 @@
             margin-left: 40px;
             margin-right: 40px;
         }
+
         @media screen and (max-width: 540px) {
             .row {
                 flex-direction: column;
@@ -203,6 +207,7 @@
             flex-wrap: wrap;
             padding-left: 25px;
         }
+
         @media screen and (max-width: 540px) {
             .tabs {
                 flex-direction: column;
@@ -211,6 +216,7 @@
                 width: 100%;
             }
         }
+
         .tabs__item {
             max-width: 330px;
             min-width: 270px;
@@ -230,6 +236,7 @@
             /* 29px */
             text-transform: uppercase;
         }
+
         @media screen and (max-width: 540px) {
             .tabs__item {
                 max-width: 520px;
@@ -258,6 +265,7 @@
             /* margin-right: 20px; */
             margin-bottom: 36px;
         }
+
         @media screen and (max-width: 540px) {
             .row__instruction {
                 max-width: 100%;
@@ -276,6 +284,7 @@
             flex-shrink: 0;
             position: relative;
         }
+
         @media screen and (max-width: 540px) {
             .input-container {
                 border-top: none;
@@ -320,12 +329,13 @@
             letter-spacing: -9.92px;
             text-transform: uppercase;
         }
+
         @media screen and (max-width: 540px) {
             .number-input {
                 font-size: 80px;
                 letter-spacing: -6.4px;
             }
-         }
+        }
 
         .input-wrapper {
             height: 174px;
@@ -350,11 +360,17 @@
             flex-direction: row;
             flex-wrap: wrap;
             justify-content: start;
-            gap: 55px;
+            gap: 60px;
         }
-        @media screen and (min-width:1025px) and (max-width: 1250px) {
+
+        @media screen and (min-width:1025px) and (max-width: 1230px) {
             .options-container {
-                gap: 25px;
+                gap: 20px;
+            }
+        }
+        @media screen and (min-width:1231px) and (max-width: 1280px) {
+            .options-container {
+                gap: 45px;
             }
         }
         @media screen and (max-width: 540px) {
@@ -371,10 +387,12 @@
                 width: 100%;
             }
         }
+
         .column {
             max-width: 330px;
             min-width: 245px;
         }
+
         @media screen and (max-width: 540px) {
             .column {
                 max-width: 520px;
@@ -440,8 +458,14 @@
 
         .range-info {
             display: flex;
-            align-items: center;
-            justify-content: space-between;
+            align-items: baseline;
+        }
+        .range-info span {
+            color: #444460;
+            font-size: 10px;
+            font-weight: 300;
+            line-height: 145%;
+            text-transform: uppercase;
         }
 
         .range-info output {
@@ -450,6 +474,7 @@
             font-weight: 300;
             line-height: 145%;
             height: 38px;
+            margin-left: auto;
         }
 
         .input-range {
@@ -459,6 +484,9 @@
             height: 2px;
             background: #444460;
             border-radius: 2px;
+            background-image: linear-gradient(#fff, #fff);
+            background-size: 0% 0%;
+            background-repeat: no-repeat;
         }
 
         .input-range_inactive {
@@ -473,8 +501,9 @@
             border: 1px solid #FFF;
             background: #444460;
             cursor: pointer;
-            box-shadow: 0 0 2px 0 #555;
+            transition: #444460 .3s ease-in-out;
         }
+
         .input-range::-moz-range-thumb {
             -webkit-appearance: none;
             appearance: none;
@@ -486,6 +515,7 @@
             cursor: pointer;
             box-shadow: 0 0 2px 0 #555;
         }
+
         .input-range::-ms-thumb {
             -webkit-appearance: none;
             appearance: none;
@@ -497,24 +527,29 @@
             cursor: pointer;
             box-shadow: 0 0 2px 0 #555;
         }
+
         .input-range_inactive::-webkit-slider-thumb {
             border: 1px solid #eae0da8c;
             background: #2d2d3d;
         }
+
         .input-range_inactive::-moz-range-thumb {
             border: 1px solid #eae0da8c;
             background: #2d2d3d;
         }
+
         .input-range_inactive::-ms-thumb {
             border: 1px solid #eae0da8c;
             background: #2d2d3d;
         }
+
         .input-range::-webkit-slider-runnable-track {
             -webkit-appearance: none;
             box-shadow: none;
             border: none;
             background: transparent;
         }
+
         .input-range::-moz-range-track {
             -webkit-appearance: none;
             appearance: none;
@@ -522,6 +557,7 @@
             border: none;
             background: transparent;
         }
+
         .input-range::-ms-track {
             -webkit-appearance: none;
             appearance: none;
@@ -529,27 +565,29 @@
             border: none;
             background: transparent;
         }
+
         .row_results {
             border-top: 1px solid rgb(27%, 27%, 38%, 0.4);
             border-bottom: 1px solid rgb(27%, 27%, 38%, 0.4);
             padding-bottom: 0;
             text-transform: uppercase;
             flex-wrap: wrap;
-            column-gap: 150px; 
+            column-gap: 150px;
         }
+
         @media screen and (max-width: 1024px) {
             .row_results {
                 column-gap: 30px;
-                border-top: none; 
-                }
-}
+                border-top: none;
+            }
+        }
 
         .result-container {
             padding-top: 35px;
         }
 
         .result-container:first-child {
-            margin-right: auto; 
+            margin-right: auto;
         }
 
         .result-container p {
@@ -567,10 +605,11 @@
             line-height: 140%;
             /* 173.6px */
         }
+
         @media screen and (max-width: 540px) {
             .result-container .number {
                 font-size: 80px;
-            } 
+            }
         }
 
         .budget,
@@ -619,6 +658,7 @@
             text-align: center;
             text-transform: uppercase;
         }
+
         @media screen and (max-width: 540px) {
             .buttons-container button {
                 width: 100%;
@@ -639,6 +679,7 @@
             line-height: 11.667px;
             /* 100% */
         }
+
         @media screen and (max-width: 540px) {
             .info {
                 display: none;
@@ -756,7 +797,7 @@
                         </div>
                         <p>соток</p>
                     </div>
-                    <input type="range" class="input-range" value="50" min="0" max="100" id="range"
+                    <input type="range" class="input-range" value="50" min="0" max="1000" id="rangeland"
                         oninput="rangevalueplot.value=value" />
                 </div>
                 <div class="options-container">
@@ -865,11 +906,11 @@
                     <div class="area">
                         <div class="input-wrapper">
                             <input type="number" class="number-input" id="rangevaluehouse" value="580"
-                                oninput="range.value=value">
+                                oninput="range.value=value" min="0" max="1000">
                         </div>
                         <p>кв.м</p>
                     </div>
-                    <input type="range" class="input-range" value="580" min="0" max="1000" id="range"
+                    <input type="range" class="input-range" name="range" value="580" min="0" max="1000" id="rangehouse"
                         oninput="rangevaluehouse.value=value" />
                 </div>
                 <div class="options-container">
@@ -877,7 +918,7 @@
                         <div class="range-container">
                             <div class="range-info">
                                 <label class="form-control" for="range">Котельная</label>
-                                <output id="rangevalue1">20</output>
+                                <output id="rangevalue1">20</output><span>кв.м</span>
                             </div>
                             <input type="range" class="input-range" value="20" min="0" max="100" id="range"
                                 oninput="rangevalue1.value=value" />
@@ -885,7 +926,7 @@
                         <div class="range-container">
                             <div class="range-info">
                                 <label class="form-control form-control_inactive" for="range">Гостиная</label>
-                                <output id="rangevalue2"></output>
+                                <output id="rangevalue2"></output><span>кв.м</span>
                             </div>
                             <input type="range" class="input-range input-range_inactive" value="0" min="0" max="100"
                                 id="range" oninput="rangevalue2.value=value" />
@@ -893,7 +934,7 @@
                         <div class="range-container">
                             <div class="range-info">
                                 <label class="form-control" for="range">Кухня</label>
-                                <output id="rangevalue">50</output>
+                                <output id="rangevalue">50</output><span>кв.м</span>
                             </div>
                             <input type="range" value="50" class="input-range" min="0" max="100" id="range"
                                 oninput="rangevalue.value=value" />
@@ -901,7 +942,7 @@
                         <div class="range-container">
                             <div class="range-info">
                                 <label class="form-control" for="range">Столовая</label>
-                                <output id="rangevalue">50</output>
+                                <output id="rangevalue">50</output><span>кв.м</span>
                             </div>
                             <input type="range" value="50" class="input-range" min="0" max="100" id="range"
                                 oninput="rangevalue.value=value" />
@@ -909,7 +950,7 @@
                         <div class="range-container">
                             <div class="range-info">
                                 <label class="form-control" for="range">Кладовая</label>
-                                <output id="rangevalue">50</output>
+                                <output id="rangevalue">50</output><span>кв.м</span>
                             </div>
                             <input type="range" value="50" class="input-range" min="0" max="100" id="range"
                                 oninput="rangevalue.value=value" />
@@ -917,7 +958,7 @@
                         <div class="range-container">
                             <div class="range-info">
                                 <label class="form-control" for="range">+ Детская</label>
-                                <output id="rangevalue">50</output>
+                                <output id="rangevalue">50</output><span>кв.м</span>
                             </div>
                             <input type="range" value="50" class="input-range" min="0" max="100" id="range"
                                 oninput="rangevalue.value=value" />
@@ -925,7 +966,7 @@
                         <div class="range-container">
                             <div class="range-info">
                                 <label class="form-control" for="range">- Детская</label>
-                                <output id="rangevalue">50</output>
+                                <output id="rangevalue">50</output><span>кв.м</span>
                             </div>
                             <input type="range" value="50" class="input-range" min="0" max="100" id="range"
                                 oninput="rangevalue.value=value" />
@@ -933,7 +974,7 @@
                         <div class="range-container">
                             <div class="range-info">
                                 <label class="form-control" for="range">+ Кабинет</label>
-                                <output id="rangevalue">50</output>
+                                <output id="rangevalue">50</output><span>кв.м</span>
                             </div>
                             <input type="range" value="50" class="input-range" min="0" max="100" id="range"
                                 oninput="rangevalue.value=value" />
@@ -941,7 +982,7 @@
                         <div class="range-container">
                             <div class="range-info">
                                 <label class="form-control" for="range">- Кабинет</label>
-                                <output id="rangevalue">50</output>
+                                <output id="rangevalue">50</output><span>кв.м</span>
                             </div>
                             <input type="range" value="50" class="input-range" min="0" max="100" id="range"
                                 oninput="rangevalue.value=value" />
@@ -951,7 +992,7 @@
                         <div class="range-container">
                             <div class="range-info">
                                 <label class="form-control" for="range">Спа</label>
-                                <output id="rangevalue">50</output>
+                                <output id="rangevalue">50</output><span>кв.м</span>
                             </div>
                             <input type="range" value="50" class="input-range" min="0" max="100" id="range"
                                 oninput="rangevalue.value=value" />
@@ -959,7 +1000,7 @@
                         <div class="range-container">
                             <div class="range-info">
                                 <label class="form-control" for="range">Кинозал</label>
-                                <output id="rangevalue">50</output>
+                                <output id="rangevalue">50</output><span>кв.м</span>
                             </div>
                             <input type="range" value="50" class="input-range" min="0" max="100" id="range"
                                 oninput="rangevalue.value=value" />
@@ -967,7 +1008,7 @@
                         <div class="range-container">
                             <div class="range-info">
                                 <label class="form-control" for="range">+ Гостевая</label>
-                                <output id="rangevalue">50</output>
+                                <output id="rangevalue">50</output><span>кв.м</span>
                             </div>
                             <input type="range" value="50" class="input-range" min="0" max="100" id="range"
                                 oninput="rangevalue.value=value" />
@@ -975,7 +1016,7 @@
                         <div class="range-container">
                             <div class="range-info">
                                 <label class="form-control" for="range">- Гостевая</label>
-                                <output id="rangevalue">50</output>
+                                <output id="rangevalue">50</output><span>кв.м</span>
                             </div>
                             <input type="range" value="50" class="input-range" min="0" max="100" id="range"
                                 oninput="rangevalue.value=value" />
@@ -983,7 +1024,7 @@
                         <div class="range-container">
                             <div class="range-info">
                                 <label class="form-control" for="range">Гостевой туалет</label>
-                                <output id="rangevalue">50</output>
+                                <output id="rangevalue">50</output><span>кв.м</span>
                             </div>
                             <input type="range" value="50" class="input-range" min="0" max="100" id="range"
                                 oninput="rangevalue.value=value" />
@@ -991,7 +1032,7 @@
                         <div class="range-container">
                             <div class="range-info">
                                 <label class="form-control" for="range">Гостевая гардеробная</label>
-                                <output id="rangevalue">50</output>
+                                <output id="rangevalue">50</output><span>кв.м</span>
                             </div>
                             <input type="range" value="50" class="input-range" min="0" max="100" id="range"
                                 oninput="rangevalue.value=value" />
@@ -999,7 +1040,7 @@
                         <div class="range-container">
                             <div class="range-info">
                                 <label class="form-control" for="range">Сезонная гардеробная</label>
-                                <output id="rangevalue">50</output>
+                                <output id="rangevalue">50</output><span>кв.м</span>
                             </div>
                             <input type="range" value="50" class="input-range" min="0" max="100" id="range"
                                 oninput="rangevalue.value=value" />
@@ -1009,7 +1050,7 @@
                         <div class="range-container">
                             <div class="range-info">
                                 <label class="form-control" for="range">Спортзал</label>
-                                <output id="rangevalue">50</output>
+                                <output id="rangevalue">50</output><span>кв.м</span>
                             </div>
                             <input type="range" value="50" class="input-range" min="0" max="100" id="range"
                                 oninput="rangevalue.value=value" />
@@ -1017,7 +1058,7 @@
                         <div class="range-container">
                             <div class="range-info">
                                 <label class="form-control" for="range">Мусоросброник</label>
-                                <output id="rangevalue">50</output>
+                                <output id="rangevalue">50</output><span>кв.м</span>
                             </div>
                             <input type="range" value="50" class="input-range" min="0" max="100" id="range"
                                 oninput="rangevalue.value=value" />
@@ -1025,7 +1066,7 @@
                         <div class="range-container">
                             <div class="range-info">
                                 <label class="form-control" for="range">+ Мастер спальня</label>
-                                <output id="rangevalue">50</output>
+                                <output id="rangevalue">50</output><span>кв.м</span>
                             </div>
                             <input type="range" value="50" class="input-range" min="0" max="100" id="range"
                                 oninput="rangevalue.value=value" />
@@ -1033,7 +1074,7 @@
                         <div class="range-container">
                             <div class="range-info">
                                 <label class="form-control" for="range">- Мастер-спальня</label>
-                                <output id="rangevalue">50</output>
+                                <output id="rangevalue">50</output><span>кв.м</span>
                             </div>
                             <input type="range" value="50" class="input-range" min="0" max="100" id="range"
                                 oninput="rangevalue.value=value" />
@@ -1041,7 +1082,7 @@
                         <div class="range-container">
                             <div class="range-info">
                                 <label class="form-control" for="range">+ Спец.комната</label>
-                                <output id="rangevalue">50</output>
+                                <output id="rangevalue">50</output><span>кв.м</span>
                             </div>
                             <input type="range" value="50" class="input-range" min="0" max="100" id="range"
                                 oninput="rangevalue.value=value" />
@@ -1049,7 +1090,7 @@
                         <div class="range-container">
                             <div class="range-info">
                                 <label class="form-control" for="range">- Спец.комната</label>
-                                <output id="rangevalue">50</output>
+                                <output id="rangevalue">50</output><span>кв.м</span>
                             </div>
                             <input type="range" value="50" class="input-range" min="0" max="100" id="range"
                                 oninput="rangevalue.value=value" />
@@ -1081,6 +1122,56 @@
             </div>
         </div>
     </div>
+    <script>
+        const rangeInputs = document.querySelectorAll('input[type="range"]')
+        const numberInputs = document.querySelectorAll('input[type="number"]')
+        rangeInputs.forEach(input => {
+            const min = input.min
+            const max = input.max
+            const val = input.value
+            input.style.backgroundSize = (val - min) * 100 / (max - min) + '% 100%'
+        })
+        function handleInputChange(e) {
+            let target = e.target
+            console.log(e.target.id, e.target.value)
+            if (e.target.type !== 'range') {
+                if (e.target.id === 'rangevaluehouse') {
+                    target = document.getElementById('rangehouse')
+                } else if (e.target.id === 'rangevalueplot') {
+                    target = document.getElementById('rangeland')
+                    console.log(target)
+                }
+            }
+            
+            const min = target.min
+            const max = target.max
+            if (e.target.value) {
+                target.value = e.target.value
+            } else {
+                target.value = 0
+            }
+            
+            const val = target.value
+
+            target.style.backgroundSize = (val - min) * 100 / (max - min) + '% 100%'
+        }
+
+        rangeInputs.forEach(input => {
+            input.addEventListener('input', handleInputChange)
+        })
+        numberInputs.forEach(input => {
+            input.addEventListener('input', handleInputChange)
+        })
+
+        // const rangeContainers = document.querySelectorAll('.range-container')
+        // rangeContainers.forEach(el => {
+        //     console.log(el.querySelector('input').value,el.querySelector('span').innerHTML, el.querySelector('output').innerHTML )
+        //     if (el.querySelector('input').value === 0) {
+        //         el.querySelector('span').innerHTML = ""
+        //         el.querySelector('output').innerHTML = ""
+        //     }
+        // })
+    </script>
 </body>
 
 </html>
