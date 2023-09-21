@@ -368,11 +368,13 @@
                 gap: 20px;
             }
         }
+
         @media screen and (min-width:1231px) and (max-width: 1280px) {
             .options-container {
                 gap: 45px;
             }
         }
+
         @media screen and (max-width: 540px) {
             .options-container {
                 border-top: none;
@@ -389,10 +391,14 @@
         }
 
         .column {
-            max-width: 330px;
-            min-width: 245px;
+            max-width: 300px;
+            flex-shrink: 0;
         }
-
+        @media screen and (min-width:1025px) and (max-width: 1280px) {
+            .column {
+                width: 250px;
+            }
+        }
         @media screen and (max-width: 540px) {
             .column {
                 max-width: 520px;
@@ -459,13 +465,16 @@
         .range-info {
             display: flex;
             align-items: baseline;
+            height: 40px;
         }
+
         .range-info span {
             color: #444460;
             font-size: 10px;
             font-weight: 300;
             line-height: 145%;
             text-transform: uppercase;
+    
         }
 
         .range-info output {
@@ -475,6 +484,9 @@
             line-height: 145%;
             height: 38px;
             margin-left: auto;
+        }
+        .range-info label {
+            align-self: center;
         }
 
         .input-range {
@@ -920,7 +932,7 @@
                                 <label class="form-control" for="range">Котельная</label>
                                 <output id="rangevalue1">20</output><span>кв.м</span>
                             </div>
-                            <input type="range" class="input-range" value="20" min="0" max="100" id="range"
+                            <input type="range" class="input-range" value="20" min="0" max="500"  id="range"
                                 oninput="rangevalue1.value=value" />
                         </div>
                         <div class="range-container">
@@ -928,7 +940,7 @@
                                 <label class="form-control form-control_inactive" for="range">Гостиная</label>
                                 <output id="rangevalue2"></output><span>кв.м</span>
                             </div>
-                            <input type="range" class="input-range input-range_inactive" value="0" min="0" max="100"
+                            <input type="range" class="input-range input-range_inactive" value="0" min="0" max="500" 
                                 id="range" oninput="rangevalue2.value=value" />
                         </div>
                         <div class="range-container">
@@ -936,7 +948,7 @@
                                 <label class="form-control" for="range">Кухня</label>
                                 <output id="rangevalue">50</output><span>кв.м</span>
                             </div>
-                            <input type="range" value="50" class="input-range" min="0" max="100" id="range"
+                            <input type="range" value="50" class="input-range" min="0" max="500"  id="range"
                                 oninput="rangevalue.value=value" />
                         </div>
                         <div class="range-container">
@@ -944,7 +956,7 @@
                                 <label class="form-control" for="range">Столовая</label>
                                 <output id="rangevalue">50</output><span>кв.м</span>
                             </div>
-                            <input type="range" value="50" class="input-range" min="0" max="100" id="range"
+                            <input type="range" value="50" class="input-range" min="0" max="500"  id="range"
                                 oninput="rangevalue.value=value" />
                         </div>
                         <div class="range-container">
@@ -952,7 +964,7 @@
                                 <label class="form-control" for="range">Кладовая</label>
                                 <output id="rangevalue">50</output><span>кв.м</span>
                             </div>
-                            <input type="range" value="50" class="input-range" min="0" max="100" id="range"
+                            <input type="range" value="50" class="input-range" min="0" max="500"  id="range"
                                 oninput="rangevalue.value=value" />
                         </div>
                         <div class="range-container">
@@ -960,7 +972,7 @@
                                 <label class="form-control" for="range">+ Детская</label>
                                 <output id="rangevalue">50</output><span>кв.м</span>
                             </div>
-                            <input type="range" value="50" class="input-range" min="0" max="100" id="range"
+                            <input type="range" value="50" class="input-range" min="0" max="500"  id="range"
                                 oninput="rangevalue.value=value" />
                         </div>
                         <div class="range-container">
@@ -968,7 +980,7 @@
                                 <label class="form-control" for="range">- Детская</label>
                                 <output id="rangevalue">50</output><span>кв.м</span>
                             </div>
-                            <input type="range" value="50" class="input-range" min="0" max="100" id="range"
+                            <input type="range" value="50" class="input-range" min="0" max="500"  id="range"
                                 oninput="rangevalue.value=value" />
                         </div>
                         <div class="range-container">
@@ -976,7 +988,7 @@
                                 <label class="form-control" for="range">+ Кабинет</label>
                                 <output id="rangevalue">50</output><span>кв.м</span>
                             </div>
-                            <input type="range" value="50" class="input-range" min="0" max="100" id="range"
+                            <input type="range" value="50" class="input-range" min="0" max="500"  id="range"
                                 oninput="rangevalue.value=value" />
                         </div>
                         <div class="range-container">
@@ -984,7 +996,7 @@
                                 <label class="form-control" for="range">- Кабинет</label>
                                 <output id="rangevalue">50</output><span>кв.м</span>
                             </div>
-                            <input type="range" value="50" class="input-range" min="0" max="100" id="range"
+                            <input type="range" value="50" class="input-range" min="0" max="500"  id="range"
                                 oninput="rangevalue.value=value" />
                         </div>
                     </div>
@@ -994,7 +1006,7 @@
                                 <label class="form-control" for="range">Спа</label>
                                 <output id="rangevalue">50</output><span>кв.м</span>
                             </div>
-                            <input type="range" value="50" class="input-range" min="0" max="100" id="range"
+                            <input type="range" value="50" class="input-range" min="0" max="500"  id="range"
                                 oninput="rangevalue.value=value" />
                         </div>
                         <div class="range-container">
@@ -1002,7 +1014,7 @@
                                 <label class="form-control" for="range">Кинозал</label>
                                 <output id="rangevalue">50</output><span>кв.м</span>
                             </div>
-                            <input type="range" value="50" class="input-range" min="0" max="100" id="range"
+                            <input type="range" value="50" class="input-range" min="0" max="500"  id="range"
                                 oninput="rangevalue.value=value" />
                         </div>
                         <div class="range-container">
@@ -1010,7 +1022,7 @@
                                 <label class="form-control" for="range">+ Гостевая</label>
                                 <output id="rangevalue">50</output><span>кв.м</span>
                             </div>
-                            <input type="range" value="50" class="input-range" min="0" max="100" id="range"
+                            <input type="range" value="50" class="input-range" min="0" max="500"  id="range"
                                 oninput="rangevalue.value=value" />
                         </div>
                         <div class="range-container">
@@ -1018,7 +1030,7 @@
                                 <label class="form-control" for="range">- Гостевая</label>
                                 <output id="rangevalue">50</output><span>кв.м</span>
                             </div>
-                            <input type="range" value="50" class="input-range" min="0" max="100" id="range"
+                            <input type="range" value="50" class="input-range" min="0" max="500"  id="range"
                                 oninput="rangevalue.value=value" />
                         </div>
                         <div class="range-container">
@@ -1026,7 +1038,7 @@
                                 <label class="form-control" for="range">Гостевой туалет</label>
                                 <output id="rangevalue">50</output><span>кв.м</span>
                             </div>
-                            <input type="range" value="50" class="input-range" min="0" max="100" id="range"
+                            <input type="range" value="50" class="input-range" min="0" max="500"  id="range"
                                 oninput="rangevalue.value=value" />
                         </div>
                         <div class="range-container">
@@ -1034,7 +1046,7 @@
                                 <label class="form-control" for="range">Гостевая гардеробная</label>
                                 <output id="rangevalue">50</output><span>кв.м</span>
                             </div>
-                            <input type="range" value="50" class="input-range" min="0" max="100" id="range"
+                            <input type="range" value="50" class="input-range" min="0" max="500"  id="range"
                                 oninput="rangevalue.value=value" />
                         </div>
                         <div class="range-container">
@@ -1042,7 +1054,7 @@
                                 <label class="form-control" for="range">Сезонная гардеробная</label>
                                 <output id="rangevalue">50</output><span>кв.м</span>
                             </div>
-                            <input type="range" value="50" class="input-range" min="0" max="100" id="range"
+                            <input type="range" value="50" class="input-range" min="0" max="500"  id="range"
                                 oninput="rangevalue.value=value" />
                         </div>
                     </div>
@@ -1052,7 +1064,7 @@
                                 <label class="form-control" for="range">Спортзал</label>
                                 <output id="rangevalue">50</output><span>кв.м</span>
                             </div>
-                            <input type="range" value="50" class="input-range" min="0" max="100" id="range"
+                            <input type="range" value="50" class="input-range" min="0" max="500"  id="range"
                                 oninput="rangevalue.value=value" />
                         </div>
                         <div class="range-container">
@@ -1060,7 +1072,7 @@
                                 <label class="form-control" for="range">Мусоросброник</label>
                                 <output id="rangevalue">50</output><span>кв.м</span>
                             </div>
-                            <input type="range" value="50" class="input-range" min="0" max="100" id="range"
+                            <input type="range" value="50" class="input-range" min="0" max="500"  id="range"
                                 oninput="rangevalue.value=value" />
                         </div>
                         <div class="range-container">
@@ -1068,7 +1080,7 @@
                                 <label class="form-control" for="range">+ Мастер спальня</label>
                                 <output id="rangevalue">50</output><span>кв.м</span>
                             </div>
-                            <input type="range" value="50" class="input-range" min="0" max="100" id="range"
+                            <input type="range" value="50" class="input-range" min="0" max="500"  id="range"
                                 oninput="rangevalue.value=value" />
                         </div>
                         <div class="range-container">
@@ -1076,7 +1088,7 @@
                                 <label class="form-control" for="range">- Мастер-спальня</label>
                                 <output id="rangevalue">50</output><span>кв.м</span>
                             </div>
-                            <input type="range" value="50" class="input-range" min="0" max="100" id="range"
+                            <input type="range" value="50" class="input-range" min="0" max="500"  id="range"
                                 oninput="rangevalue.value=value" />
                         </div>
                         <div class="range-container">
@@ -1084,7 +1096,7 @@
                                 <label class="form-control" for="range">+ Спец.комната</label>
                                 <output id="rangevalue">50</output><span>кв.м</span>
                             </div>
-                            <input type="range" value="50" class="input-range" min="0" max="100" id="range"
+                            <input type="range" value="50" class="input-range" min="0" max="500"  id="range"
                                 oninput="rangevalue.value=value" />
                         </div>
                         <div class="range-container">
@@ -1092,7 +1104,7 @@
                                 <label class="form-control" for="range">- Спец.комната</label>
                                 <output id="rangevalue">50</output><span>кв.м</span>
                             </div>
-                            <input type="range" value="50" class="input-range" min="0" max="100" id="range"
+                            <input type="range" value="50" class="input-range" min="0" max="500"  id="range"
                                 oninput="rangevalue.value=value" />
                         </div>
                     </div>
@@ -1142,7 +1154,7 @@
                     console.log(target)
                 }
             }
-            
+
             const min = target.min
             const max = target.max
             if (e.target.value) {
@@ -1150,7 +1162,7 @@
             } else {
                 target.value = 0
             }
-            
+
             const val = target.value
 
             target.style.backgroundSize = (val - min) * 100 / (max - min) + '% 100%'
@@ -1163,14 +1175,27 @@
             input.addEventListener('input', handleInputChange)
         })
 
-        // const rangeContainers = document.querySelectorAll('.range-container')
-        // rangeContainers.forEach(el => {
-        //     console.log(el.querySelector('input').value,el.querySelector('span').innerHTML, el.querySelector('output').innerHTML )
-        //     if (el.querySelector('input').value === 0) {
-        //         el.querySelector('span').innerHTML = ""
-        //         el.querySelector('output').innerHTML = ""
-        //     }
-        // })
+        const rangeContainers = document.querySelectorAll('.range-container');
+        rangeContainers.forEach(el => {
+            const input = el.querySelector('input');
+            const span = el.querySelector('span');
+            const output = el.querySelector('output');
+            // Update content when page loads
+            updateContent(input, span, output);
+            input.addEventListener('input', () => updateContent(input, span, output));
+        });
+
+        function updateContent(input, span, output) {
+            if (input.value == 0) {
+                span.innerHTML = "";
+                output.innerHTML = "";
+            } else {
+                // Restore the original value
+                span.innerHTML = "кв.м";
+                output.innerHTML = input.value;
+            }
+        }
+
     </script>
 </body>
 
