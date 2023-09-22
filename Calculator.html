@@ -123,6 +123,7 @@
 
         input[type="number"] {
             -moz-appearance: textfield;
+            appearance: textfield;
         }
 
         html,
@@ -955,7 +956,7 @@
                     <div class="area">
                         <div class="input-wrapper">
                             <input type="number" class="number-input" id="rangevaluehouse" value="580"
-                                oninput="range.value=value" min="0" max="1000">
+                                oninput="rangehouse.value=value" min="0" max="1000">
                         </div>
                         <p>кв.м</p>
                     </div>
@@ -1264,7 +1265,37 @@
             if (e.target.type !== 'range') {
                 if (e.target.id === 'rangevaluehouse') {
                     target = document.getElementById('rangehouse')
+                    if (houseArea > 0) {
+                        rooms.forEach(room => {
+                            if (room.area > 0) {
+                                room.percentage = room.area / houseArea * 100 // save the percentage of the room from the total area of the house
+                            } else if (room.area === 0) {
+                                room.percentage = 0
+                            }
+                        })
+                    }
+                    const prevHouseArea = houseArea
                     houseArea = Number(e.target.value)
+                    let areaChangeRatio = 1
+                    if (prevHouseArea > 0) {
+                        areaChangeRatio = houseArea / prevHouseArea; // calculate the change ratio
+                    }
+                    rooms.forEach(room => {
+                        if (prevHouseArea === 0) {
+                            room.area = houseArea / 100 * room.percentage
+                        } else {
+                            room.area *= areaChangeRatio
+                        }
+                        rangeContainers.forEach(el => {
+                            let input = el.querySelector('input')
+                            if (input.id === room.name) {
+                                input.value = Math.round(room.area)
+                                input.style.backgroundSize = (input.value - input.min) * 100 / (input.max - input.min) + '% 100%'
+                            }
+                            updateContent(input, el.querySelector('span'), el.querySelector('output'));
+                        })
+                    })
+
                     const min = target.min
                     const max = target.max
                     if (e.target.value) {
@@ -1279,13 +1310,43 @@
                     target = document.getElementById('rangeland')
                 }
             } else if (e.target.id === 'rangehouse') {
-                houseArea = Number(e.target.value)
+                if (houseArea > 0) {
+                        rooms.forEach(room => {
+                            if (room.area > 0) {
+                                room.percentage = room.area / houseArea * 100 // save the percentage of the room from the total area of the house
+                            } else if (room.area === 0) {
+                                room.percentage = 0
+                            }
+                        })
+                    }
+                    const prevHouseArea = houseArea
+                    houseArea = Number(e.target.value)
+                    let areaChangeRatio = 1
+                    if (prevHouseArea > 0) {
+                        areaChangeRatio = houseArea / prevHouseArea; // calculate the change ratio
+                    }
+                    rooms.forEach(room => {
+                        if (prevHouseArea === 0) {
+                            room.area = houseArea / 100 * room.percentage
+                        } else {
+                            room.area *= areaChangeRatio
+                        }
+                        rangeContainers.forEach(el => {
+                            let input = el.querySelector('input')
+                            if (input.id === room.name) {
+                                input.value = Math.round(room.area)
+                                input.style.backgroundSize = (input.value - input.min) * 100 / (input.max - input.min) + '% 100%'
+                            }
+                            updateContent(input, el.querySelector('span'), el.querySelector('output'));
+                        })
+                    })
+                    
                 houseAreaInput.value = houseArea
                 const min = target.min
                 const max = target.max
                 const val = e.target.value
                 target.style.backgroundSize = (val - min) * 100 / (max - min) + '% 100%'
-                return;
+                return
             }
             const min = target.min
             const max = target.max
