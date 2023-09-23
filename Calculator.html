@@ -605,14 +605,14 @@
             border-bottom: 1px solid rgb(27%, 27%, 38%, 0.4);
             padding-bottom: 0;
             text-transform: uppercase;
-            flex-wrap: wrap;
-            column-gap: 150px;
+            column-gap: 120px;
         }
 
         @media screen and (max-width: 1024px) {
             .row_results {
                 column-gap: 30px;
                 border-top: none;
+                flex-wrap: wrap;
             }
         }
 
@@ -650,6 +650,7 @@
         .time {
             display: flex;
             align-items: baseline;
+            flex-wrap: nowrap;
         }
 
         .time__month,
@@ -669,6 +670,7 @@
             font-size: 15px;
             font-weight: 300;
             line-height: 140%;
+            width: 48.5px;
         }
 
         .buttons-container {
@@ -676,6 +678,7 @@
             display: flex;
             flex-direction: column;
             gap: 10px;
+            flex-shrink: 0;
         }
 
         .buttons-container button {
@@ -781,7 +784,7 @@
                     выберите эксклюзивность отделки и благоустройства
                 </div>
                 <div class="tabs">
-                    <div class="tabs__item">
+                    <div class="tabs__item tabs__item_selected" id="standard">
                         <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 25 25" fill="none">
                             <path
                                 d="M23.7932 14.2993C23.2811 14.6415 22.7304 14.7259 22.1121 14.6978C22.1072 17.1685 22.1314 19.5876 22.0976 22.0489C22.0734 23.3617 20.9189 24.4634 19.5663 24.4868C18.2137 24.5103 16.8562 24.4962 15.4988 24.4915C15.064 24.4915 14.7742 24.1868 14.7742 23.7367C14.7693 22.6256 14.7742 21.5145 14.7693 20.4034C14.7693 19.672 14.7693 18.9359 14.7693 18.2046C14.7645 17.4498 14.2766 16.9669 13.4892 16.9575C12.7501 16.9481 12.011 16.9481 11.2719 16.9575C10.5038 16.9669 10.0111 17.4545 10.0111 18.1999C10.0062 20.0142 10.0062 21.8239 10.0062 23.6383C10.0062 24.243 9.74537 24.4962 9.11737 24.4962C7.89036 24.4962 6.66335 24.4962 5.43634 24.4962C3.81805 24.4915 2.66833 23.3945 2.65867 21.8192C2.64901 19.447 2.65384 17.07 2.65384 14.6978C0.412374 14.904 -0.891926 12.4568 0.71188 10.8768C4.02577 7.6607 7.33966 4.44456 10.6584 1.2331C10.8661 1.02213 11.1076 0.848665 11.3733 0.708017C12.1462 0.332957 13.3491 0.450163 14.0834 1.18153C15.9432 3.03339 17.8417 4.84774 19.7257 6.67616C21.1701 8.08264 22.6048 9.49849 24.0733 10.8862C25.0395 11.8004 24.9477 13.5538 23.7932 14.2993Z"
@@ -789,7 +792,7 @@
                         </svg>
                         Стандарт
                     </div>
-                    <div class="tabs__item">
+                    <div class="tabs__item" id="personal">
                         <svg xmlns="http://www.w3.org/2000/svg" width="27" height="25" viewBox="0 0 27 25" fill="none">
                             <path
                                 d="M26.0475 11.3455L22.0325 7.43946V2.92727C22.0325 2.11141 21.3529 1.45021 20.513 1.45021C19.6751 1.45021 18.9955 2.11141 18.9955 2.92727V4.48498L16.006 1.57648C14.528 0.139324 11.9582 0.141873 10.4835 1.57908L0.44447 11.3455C-0.148157 11.9232 -0.148157 12.858 0.44447 13.4348C1.03736 14.0123 2.00005 14.0123 2.59273 13.4348L12.6308 3.66807C12.9578 3.3516 13.5342 3.3516 13.8595 3.66713L23.8993 13.4348C24.197 13.7236 24.5851 13.8672 24.9731 13.8672C25.362 13.8672 25.7507 13.7234 26.0475 13.4348C26.6404 12.858 26.6404 11.9233 26.0475 11.3455Z"
@@ -800,7 +803,7 @@
                         </svg>
                         Персонально
                     </div>
-                    <div class="tabs__item">
+                    <div class="tabs__item" id="exclusive">
                         <svg xmlns="http://www.w3.org/2000/svg" width="26" height="25" viewBox="0 0 26 25" fill="none">
                             <path
                                 d="M21.5474 6.78577C23.2002 6.78577 24.54 5.37865 24.54 3.64288C24.54 1.90712 23.2002 0.5 21.5474 0.5C19.8946 0.5 18.5547 1.90712 18.5547 3.64288C18.5547 5.37865 19.8946 6.78577 21.5474 6.78577Z"
@@ -836,66 +839,66 @@
                 <div class="options-container">
                     <div class="column">
                         <div class="option">
-                            <input type="checkbox" name="r1" id="r1">
-                            <label class="form-control" for="r1">Терраса</label>
+                            <input type="checkbox" name="terrace" id="r1">
+                            <label class="form-control" for="terrace">Терраса</label>
                         </div>
                         <div class="option">
-                            <input type="checkbox" name="r2" id="r2">
-                            <label class="form-control" for="r2">Гриль</label>
+                            <input type="checkbox" name="grill" id="r2">
+                            <label class="form-control" for="grill">Гриль</label>
                         </div>
                         <div class="option">
-                            <input type="checkbox" name="r3" id="r1">
-                            <label class="form-control" for="r3">Кострище</label>
+                            <input type="checkbox" name="fire-pit" id="r3">
+                            <label class="form-control" for="fire-pit">Кострище</label>
                         </div>
                         <div class="option">
-                            <input type="checkbox" name="r4" id="r1">
-                            <label class="form-control" for="r4">Беседка</label>
+                            <input type="checkbox" name="arbor" id="r4">
+                            <label class="form-control" for="arbor">Беседка</label>
                         </div>
                         <div class="option">
-                            <input type="checkbox" name="r5" id="r1">
-                            <label class="form-control" for="r5">Водоём</label>
+                            <input type="checkbox" name="water" id="r5">
+                            <label class="form-control" for="water">Водоём</label>
                         </div>
                         <div class="option">
-                            <input type="checkbox" name="r6" id="r1">
-                            <label class="form-control" for="r6">Открытый бассейн</label>
-                        </div>
-                    </div>
-                    <div class="column">
-                        <div class="option">
-                            <input type="checkbox" name="r7" id="r1">
-                            <label class="form-control" for="r7">Ручей/фонтан</label>
-                        </div>
-                        <div class="option">
-                            <input type="checkbox" name="r8" id="r1">
-                            <label class="form-control" for="r8">Оранжерея</label>
-                        </div>
-                        <div class="option">
-                            <input type="checkbox" name="r9" id="r1">
-                            <label class="form-control" for="r9">Сад</label>
-                        </div>
-                        <div class="option">
-                            <input type="checkbox" name="r10" id="r1">
-                            <label class="form-control" for="r10">Огород</label>
-                        </div>
-                        <div class="option">
-                            <input type="checkbox" name="r11" id="r1">
-                            <label class="form-control" for="r11">Спорт площадка</label>
-                        </div>
-                        <div class="option">
-                            <input type="checkbox" name="r12" id="r1">
-                            <label class="form-control" for="r12">Детская площадка</label>
-                        </div>
-                        <div class="option">
-                            <input type="checkbox" name="r13" id="r1">
-                            <label class="form-control" for="r13">Сад камней</label>
+                            <input type="checkbox" name="open-pool" id="r6">
+                            <label class="form-control" for="open-pool">Открытый бассейн</label>
                         </div>
                     </div>
                     <div class="column">
                         <div class="option">
-                            <input type="checkbox" name="r14" id="r1">
-                            <label class="form-control" for="r14">
-                                <svg class="add-btn" xmlns="http://www.w3.org/2000/svg" width="15" height="16"
-                                    viewBox="0 0 15 16" fill="none">
+                            <input type="checkbox" name="stream/fountain" id="r7">
+                            <label class="form-control" for="stream/fountain">Ручей/фонтан</label>
+                        </div>
+                        <div class="option">
+                            <input type="checkbox" name="greenhouse" id="r8">
+                            <label class="form-control" for="greenhouse">Оранжерея</label>
+                        </div>
+                        <div class="option">
+                            <input type="checkbox" name="garden" id="r9">
+                            <label class="form-control" for="garden">Сад</label>
+                        </div>
+                        <div class="option">
+                            <input type="checkbox" name="vegetable-garden" id="r10">
+                            <label class="form-control" for="vegetable-garden">Огород</label>
+                        </div>
+                        <div class="option">
+                            <input type="checkbox" name="sports-ground" id="r11">
+                            <label class="form-control" for="sports-ground">Спорт площадка</label>
+                        </div>
+                        <div class="option">
+                            <input type="checkbox" name="playground" id="r12">
+                            <label class="form-control" for="playground">Детская площадка</label>
+                        </div>
+                        <div class="option">
+                            <input type="checkbox" name="rock-garden" id="r13">
+                            <label class="form-control" for="rock-garden">Сад камней</label>
+                        </div>
+                    </div>
+                    <div class="column">
+                        <div class="option">
+                            <input type="checkbox" name="garage" id="r14">
+                            <label class="form-control" for="garage">
+                                <svg class="add-btn add-checkbox" xmlns="http://www.w3.org/2000/svg" width="15"
+                                    height="16" viewBox="0 0 15 16" fill="none">
                                     <rect x="7" y="0.833374" width="1" height="15" fill="white" />
                                     <rect y="7.83337" width="15" height="1" fill="white" />
                                 </svg>
@@ -905,47 +908,47 @@
                             </div>
                         </div>
                         <div class="option">
-                            <input type="checkbox" name="r15" id="r1">
-                            <label class="form-control" for="r15">
-                                <div class="delete-btn">&mdash;</div> Гараж
+                            <input type="checkbox" name="garage" id="r15">
+                            <label class="form-control" for="garage">
+                                <div class="delete-btn delete-checkbox">&mdash;</div> Гараж
                             </label>
                         </div>
                         <div class="option">
-                            <input type="checkbox" name="r16" id="r1">
-                            <label class="form-control" for="r16">Гараж сезон.техники</label>
+                            <input type="checkbox" name="seasonal-equipment-garage" id="r16">
+                            <label class="form-control" for="seasonal-equipment-garage">Гараж сезон.техники</label>
                         </div>
                         <div class="option">
-                            <input type="checkbox" name="r17" id="r1">
-                            <label class="form-control" for="r17">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="add-btn" width="15" height="16"
-                                    viewBox="0 0 15 16" fill="none">
+                            <input type="checkbox" name="canopy" id="r17">
+                            <label class="form-control" for="canopy">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="add-btn add-checkbox" width="15"
+                                    height="16" viewBox="0 0 15 16" fill="none">
                                     <rect x="7" y="0.833374" width="1" height="15" fill="white" />
                                     <rect y="7.83337" width="15" height="1" fill="white" />
                                 </svg>
                                 Навес</label>
                         </div>
                         <div class="option">
-                            <input type="checkbox" name="r18" id="r1">
-                            <label class="form-control" for="r18">
-                                <div class="delete-btn">&mdash;</div>
+                            <input type="checkbox" name="canopy" id="r18">
+                            <label class="form-control" for="canopy">
+                                <div class="delete-btn delete-checkbox">&mdash;</div>
                                 Навес
                             </label>
                         </div>
                         <div class="option">
-                            <input type="checkbox" name="r19" id="r1">
-                            <label class="form-control" for="r19">Мойка машины</label>
+                            <input type="checkbox" name="car-wash" id="r19">
+                            <label class="form-control" for="car-wash">Мойка машины</label>
                         </div>
                         <div class="option">
-                            <input type="checkbox" name="r20" id="r1">
-                            <label class="form-control" for="r20">Хозблок</label>
+                            <input type="checkbox" name="hozblok" id="r20">
+                            <label class="form-control" for="hozblok">Хозблок</label>
                         </div>
                         <div class="option">
-                            <input type="checkbox" name="r21" id="r1">
-                            <label class="form-control" for="r21">Вольер</label>
+                            <input type="checkbox" name="aviary" id="r21">
+                            <label class="form-control" for="aviary">Вольер</label>
                         </div>
                         <div class="option">
-                            <input type="checkbox" name="r22" id="r1">
-                            <label class="form-control" for="r22">Другое</label>
+                            <input type="checkbox" name="other" id="r22">
+                            <label class="form-control" for="other">Другое</label>
                         </div>
                     </div>
                 </div>
@@ -955,236 +958,20 @@
                     <label for="range">Дом</label>
                     <div class="area">
                         <div class="input-wrapper">
-                            <input type="number" class="number-input" id="rangevaluehouse" value="580"
-                                oninput="rangehouse.value=value" min="0" max="1000">
+                            <input type="number" class="number-input" id="rangevaluehouse" value="0"
+                                oninput="rangehouse.value=value" min="0" max="1355">
                         </div>
                         <p>кв.м</p>
                     </div>
-                    <input type="range" class="input-range" name="range" value="580" min="0" max="1000" id="rangehouse"
+                    <input type="range" class="input-range" name="range" value="0" min="0" max="1355" id="rangehouse"
                         oninput="rangevaluehouse.value=value" />
                 </div>
                 <div class="options-container">
-                    <div class="column">
-                        <div class="range-container">
-                            <div class="range-info">
-                                <label class="form-control" for="range">Котельная</label>
-                                <output id="rangevalue1">20</output><span>кв.м</span>
-                            </div>
-                            <input type="range" class="input-range" value="20" min="0" max="500" id="boiler-room"
-                                oninput="rangevalue1.value=value" />
-                        </div>
-                        <div class="range-container">
-                            <div class="range-info">
-                                <label class="form-control form-control_inactive" for="range">Гостиная</label>
-                                <output id="rangevalue2"></output><span>кв.м</span>
-                            </div>
-                            <input type="range" class="input-range input-range_inactive" value="0" min="0" max="500"
-                                id="living-room" oninput="rangevalue2.value=value" />
-                        </div>
-                        <div class="range-container">
-                            <div class="range-info">
-                                <label class="form-control" for="range">Кухня</label>
-                                <output id="rangevalue">50</output><span>кв.м</span>
-                            </div>
-                            <input type="range" value="35" class="input-range" min="0" max="500" id="kitchen"
-                                oninput="rangevalue.value=value" />
-                        </div>
-                        <div class="range-container">
-                            <div class="range-info">
-                                <label class="form-control" for="range">Столовая</label>
-                                <output id="rangevalue">50</output><span>кв.м</span>
-                            </div>
-                            <input type="range" value="40" class="input-range" min="0" max="500" id="dining-room"
-                                oninput="rangevalue.value=value" />
-                        </div>
-                        <div class="range-container">
-                            <div class="range-info">
-                                <label class="form-control" for="range">Кладовая</label>
-                                <output id="rangevalue">50</output><span>кв.м</span>
-                            </div>
-                            <input type="range" value="0" class="input-range" min="0" max="500" id="storeroom"
-                                oninput="rangevalue.value=value" />
-                        </div>
-                        <div class="range-container">
-                            <div class="range-info">
-                                <label class="form-control" for="range">
-                                    <svg xmlns="http://www.w3.org/2000/svg" class="add-btn" width="15" height="16"
-                                        viewBox="0 0 15 16" fill="none">
-                                        <rect x="7" y="0.833374" width="1" height="15" fill="white" />
-                                        <rect y="7.83337" width="15" height="1" fill="white" />
-                                    </svg>
-                                    Детская</label>
-                                <output id="rangevalue">50</output><span>кв.м</span>
-                            </div>
-                            <input type="range" value="25" class="input-range" min="0" max="500" id="childrens-room-1"
-                                oninput="rangevalue.value=value" />
-                        </div>
-                        <div class="range-container">
-                            <div class="range-info">
-                                <label class="form-control" for="range">
-                                    <div class="delete-btn">&mdash;</div>Детская
-                                </label>
-                                <output id="rangevalue">50</output><span>кв.м</span>
-                            </div>
-                            <input type="range" value="0" class="input-range" min="0" max="500" id="childrens-room-2"
-                                oninput="rangevalue.value=value" />
-                        </div>
-                        <div class="range-container">
-                            <div class="range-info">
-                                <label class="form-control" for="range">
-                                    <svg xmlns="http://www.w3.org/2000/svg" class="add-btn" width="15" height="16"
-                                        viewBox="0 0 15 16" fill="none">
-                                        <rect x="7" y="0.833374" width="1" height="15" fill="white" />
-                                        <rect y="7.83337" width="15" height="1" fill="white" />
-                                    </svg>
-                                    Кабинет</label>
-                                <output id="rangevalue">50</output><span>кв.м</span>
-                            </div>
-                            <input type="range" value="30" class="input-range" min="0" max="500" id="cabinet-1"
-                                oninput="rangevalue.value=value" />
-                        </div>
-                        <div class="range-container">
-                            <div class="range-info">
-                                <label class="form-control" for="range">
-                                    <div class="delete-btn">&mdash;</div> Кабинет
-                                </label>
-                                <output id="rangevalue">50</output><span>кв.м</span>
-                            </div>
-                            <input type="range" value="0" class="input-range" min="0" max="500" id="cabinet-2"
-                                oninput="rangevalue.value=value" />
-                        </div>
+                    <div class="column" id="column1">
                     </div>
-                    <div class="column">
-                        <div class="range-container">
-                            <div class="range-info">
-                                <label class="form-control" for="range">Спа</label>
-                                <output id="rangevalue">50</output><span>кв.м</span>
-                            </div>
-                            <input type="range" value="0" class="input-range" min="0" max="500" iid="spa"
-                                oninput="rangevalue.value=value" />
-                        </div>
-                        <div class="range-container">
-                            <div class="range-info">
-                                <label class="form-control" for="range">Кинозал</label>
-                                <output id="rangevalue">50</output><span>кв.м</span>
-                            </div>
-                            <input type="range" value="50" class="input-range" min="0" max="500" id="cinema-room"
-                                oninput="rangevalue.value=value" />
-                        </div>
-                        <div class="range-container">
-                            <div class="range-info">
-                                <label class="form-control" for="range">
-                                    <svg xmlns="http://www.w3.org/2000/svg" class="add-btn" width="15" height="16"
-                                        viewBox="0 0 15 16" fill="none">
-                                        <rect x="7" y="0.833374" width="1" height="15" fill="white" />
-                                        <rect y="7.83337" width="15" height="1" fill="white" />
-                                    </svg>
-                                    Гостевая</label>
-                                <output id="rangevalue">50</output><span>кв.м</span>
-                            </div>
-                            <input type="range" value="40" class="input-range" min="0" max="500" id="guest-room-1"
-                                oninput="rangevalue.value=value" />
-                        </div>
-                        <div class="range-container">
-                            <div class="range-info">
-                                <label class="form-control" for="range">
-                                    <div class="delete-btn">&mdash;</div> Гостевая
-                                </label>
-                                <output id="rangevalue">50</output><span>кв.м</span>
-                            </div>
-                            <input type="range" value="0" class="input-range" min="0" max="500" id="guest-room-2"
-                                oninput="rangevalue.value=value" />
-                        </div>
-                        <div class="range-container">
-                            <div class="range-info">
-                                <label class="form-control" for="range">Гостевой туалет</label>
-                                <output id="rangevalue">50</output><span>кв.м</span>
-                            </div>
-                            <input type="range" value="15" class="input-range" min="0" max="500" id="guest-toilet"
-                                oninput="rangevalue.value=value" />
-                        </div>
-                        <div class="range-container">
-                            <div class="range-info">
-                                <label class="form-control" for="range">Гостевая гардеробная</label>
-                                <output id="rangevalue">50</output><span>кв.м</span>
-                            </div>
-                            <input type="range" value="0" class="input-range" min="0" max="500" id="guest-dressing-room"
-                                oninput="rangevalue.value=value" />
-                        </div>
-                        <div class="range-container">
-                            <div class="range-info">
-                                <label class="form-control" for="range">Сезонная гардеробная</label>
-                                <output id="rangevalue">50</output><span>кв.м</span>
-                            </div>
-                            <input type="range" value="0" class="input-range" min="0" max="500"
-                                id="seasonal-dressing-room" oninput="rangevalue.value=value" />
-                        </div>
+                    <div class="column" id="column2">
                     </div>
-                    <div class="column">
-                        <div class="range-container">
-                            <div class="range-info">
-                                <label class="form-control" for="range">Спортзал</label>
-                                <output id="rangevalue">50</output><span>кв.м</span>
-                            </div>
-                            <input type="range" value="0" class="input-range" min="0" max="500" id="gym"
-                                oninput="rangevalue.value=value" />
-                        </div>
-                        <div class="range-container">
-                            <div class="range-info">
-                                <label class="form-control" for="range">Мусоросборник</label>
-                                <output id="rangevalue">50</output><span>кв.м</span>
-                            </div>
-                            <input type="range" value="0" class="input-range" min="0" max="500" id="trash-room"
-                                oninput="rangevalue.value=value" />
-                        </div>
-                        <div class="range-container">
-                            <div class="range-info">
-                                <label class="form-control" for="range">
-                                    <svg xmlns="http://www.w3.org/2000/svg" class="add-btn" width="15" height="16"
-                                        viewBox="0 0 15 16" fill="none">
-                                        <rect x="7" y="0.833374" width="1" height="15" fill="white" />
-                                        <rect y="7.83337" width="15" height="1" fill="white" />
-                                    </svg>
-                                    Мастер спальня</label>
-                                <output id="rangevalue">50</output><span>кв.м</span>
-                            </div>
-                            <input type="range" value="0" class="input-range" min="0" max="500" id="master-bedroom-1"
-                                oninput="rangevalue.value=value" />
-                        </div>
-                        <div class="range-container">
-                            <div class="range-info">
-                                <label class="form-control" for="range">
-                                    <div class="delete-btn">&mdash;</div> Мастер-спальня
-                                </label>
-                                <output id="rangevalue">50</output><span>кв.м</span>
-                            </div>
-                            <input type="range" value="35" class="input-range" min="0" max="500" id="master-bedroom-2"
-                                oninput="rangevalue.value=value" />
-                        </div>
-                        <div class="range-container">
-                            <div class="range-info">
-                                <label class="form-control" for="range">
-                                    <svg xmlns="http://www.w3.org/2000/svg" class="add-btn" width="15" height="16"
-                                        viewBox="0 0 15 16" fill="none">
-                                        <rect x="7" y="0.833374" width="1" height="15" fill="white" />
-                                        <rect y="7.83337" width="15" height="1" fill="white" />
-                                    </svg>
-                                    Спец.комната</label>
-                                <output id="rangevalue">50</output><span>кв.м</span>
-                            </div>
-                            <input type="range" value="0" class="input-range" min="0" max="500" id="special-room-1"
-                                oninput="rangevalue.value=value" />
-                        </div>
-                        <div class="range-container">
-                            <div class="range-info">
-                                <label class="form-control" for="range">
-                                    <div class="delete-btn">&mdash;</div> Спец.комната
-                                </label>
-                                <output id="rangevalue">50</output><span>кв.м</span>
-                            </div>
-                            <input type="range" value="0" class="input-range" min="0" max="500" id="special-room-2"
-                                oninput="rangevalue.value=value" />
-                        </div>
+                    <div class="column" id="column3">
                     </div>
                 </div>
             </div>
@@ -1212,174 +999,7 @@
             </div>
         </div>
     </div>
-    <script>
-        const rooms = []
-        let houseArea = 0;
-        const houseAreaInput = document.getElementById('rangevaluehouse')
-        const rangeInputs = document.querySelectorAll('input[type="range"]')
-        const numberInputs = document.querySelectorAll('input[type="number"]')
-        const rangeContainers = document.querySelectorAll('.range-container')
-        rangeContainers.forEach(el => {
-            const input = el.querySelector('input')
-            rooms.push({
-                name: input.id,
-                area: input.value
-            })
-        })
-        rangeContainers.forEach(el => {
-            const input = el.querySelector('input');
-            const span = el.querySelector('span');
-            const output = el.querySelector('output');
-            rooms.forEach(room => {
-                if (room.name === input.id) {
-                    input.value = room.area
-                }
-            })
-            // Update content when page loads
-            updateContent(input, span, output);
-            input.addEventListener('input', () => updateContent(input, span, output));
-        });
-
-        function updateContent(input, span, output) {
-            if (input.value == 0) {
-                span.innerHTML = "";
-                output.innerHTML = "";
-            } else {
-                // Restore the original value
-                span.innerHTML = "кв.м";
-                output.innerHTML = input.value;
-            }
-        }
-        rooms.forEach(room => {
-            houseArea += Number(room.area);
-        })
-        houseAreaInput.value = houseArea
-        rangeInputs.forEach(input => {
-            const min = input.min
-            const max = input.max
-            const val = input.value
-            input.style.backgroundSize = (val - min) * 100 / (max - min) + '% 100%'
-        })
-        function handleInputChange(e) {
-            let target = e.target
-            if (e.target.type !== 'range') {
-                if (e.target.id === 'rangevaluehouse') {
-                    target = document.getElementById('rangehouse')
-                    if (houseArea > 0) {
-                        rooms.forEach(room => {
-                            if (room.area > 0) {
-                                room.percentage = room.area / houseArea * 100 // save the percentage of the room from the total area of the house
-                            } else if (room.area === 0) {
-                                room.percentage = 0
-                            }
-                        })
-                    }
-                    const prevHouseArea = houseArea
-                    houseArea = Number(e.target.value)
-                    let areaChangeRatio = 1
-                    if (prevHouseArea > 0) {
-                        areaChangeRatio = houseArea / prevHouseArea; // calculate the change ratio
-                    }
-                    rooms.forEach(room => {
-                        if (prevHouseArea === 0) {
-                            room.area = houseArea / 100 * room.percentage
-                        } else {
-                            room.area *= areaChangeRatio
-                        }
-                        rangeContainers.forEach(el => {
-                            let input = el.querySelector('input')
-                            if (input.id === room.name) {
-                                input.value = Math.round(room.area)
-                                input.style.backgroundSize = (input.value - input.min) * 100 / (input.max - input.min) + '% 100%'
-                            }
-                            updateContent(input, el.querySelector('span'), el.querySelector('output'));
-                        })
-                    })
-
-                    const min = target.min
-                    const max = target.max
-                    if (e.target.value) {
-                        target.value = e.target.value
-                    } else {
-                        target.value = 0
-                    }
-                    const val = target.value
-                    target.style.backgroundSize = (val - min) * 100 / (max - min) + '% 100%'
-                    return;
-                } else if (e.target.id === 'rangevalueplot') {
-                    target = document.getElementById('rangeland')
-                }
-            } else if (e.target.id === 'rangehouse') {
-                if (houseArea > 0) {
-                        rooms.forEach(room => {
-                            if (room.area > 0) {
-                                room.percentage = room.area / houseArea * 100 // save the percentage of the room from the total area of the house
-                            } else if (room.area === 0) {
-                                room.percentage = 0
-                            }
-                        })
-                    }
-                    const prevHouseArea = houseArea
-                    houseArea = Number(e.target.value)
-                    let areaChangeRatio = 1
-                    if (prevHouseArea > 0) {
-                        areaChangeRatio = houseArea / prevHouseArea; // calculate the change ratio
-                    }
-                    rooms.forEach(room => {
-                        if (prevHouseArea === 0) {
-                            room.area = houseArea / 100 * room.percentage
-                        } else {
-                            room.area *= areaChangeRatio
-                        }
-                        rangeContainers.forEach(el => {
-                            let input = el.querySelector('input')
-                            if (input.id === room.name) {
-                                input.value = Math.round(room.area)
-                                input.style.backgroundSize = (input.value - input.min) * 100 / (input.max - input.min) + '% 100%'
-                            }
-                            updateContent(input, el.querySelector('span'), el.querySelector('output'));
-                        })
-                    })
-                    
-                houseAreaInput.value = houseArea
-                const min = target.min
-                const max = target.max
-                const val = e.target.value
-                target.style.backgroundSize = (val - min) * 100 / (max - min) + '% 100%'
-                return
-            }
-            const min = target.min
-            const max = target.max
-            if (e.target.value) {
-                target.value = e.target.value
-            } else {
-                target.value = 0
-            }
-            const val = target.value
-            rooms.forEach(room => {
-                if (room.name === target.id) {
-                    room.area = target.value
-                }
-            })
-            houseArea = 0
-            rooms.forEach(room => {
-                houseArea += Number(room.area);
-            })
-            houseAreaInput.value = houseArea
-            const houseRangeInput = document.getElementById('rangehouse')
-            houseRangeInput.value = houseArea;
-            houseRangeInput.style.backgroundSize = (houseArea - houseRangeInput.min) * 100 / (houseRangeInput.max - houseRangeInput.min) + '% 100%'
-            target.style.backgroundSize = (val - min) * 100 / (max - min) + '% 100%'
-        }
-
-        rangeInputs.forEach(input => {
-            input.addEventListener('input', handleInputChange)
-        })
-        numberInputs.forEach(input => {
-            input.addEventListener('input', handleInputChange)
-        })
-
-    </script>
+    <script src="script.js"></script>
 </body>
 
 </html>
