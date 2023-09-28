@@ -166,13 +166,10 @@ const collapseBtns = document.querySelectorAll('.collapse')
 collapseBtns.forEach(btn => {
     btn.addEventListener('click', function(e) {
         const optionsContainer = btn.parentNode.querySelector('.options-container')
-        const row = btn.parentNode.parentNode
         if (btn.parentNode.classList.contains('checkboxes-container')) {
             optionsContainer.classList.toggle('options-container_collapsed-60')
-            row.classList.toggle('row-collapsed')
         } else if (btn.parentNode.classList.contains('inputs-range-container')) {
             optionsContainer.classList.toggle('options-container_collapsed-57')
-            row.classList.toggle('row-collapsed')
         }
         
         if (!optionsContainer.classList.contains('options-container_collapsed-60') && !optionsContainer.classList.contains('options-container_collapsed-57')) {
