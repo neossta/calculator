@@ -164,14 +164,14 @@ const tabsItems = document.querySelectorAll('.tabs__item')
 const collapseBtns = document.querySelectorAll('.collapse')
 
 collapseBtns.forEach(btn => {
-    btn.addEventListener('click', function(e) {
+    btn.addEventListener('click', function (e) {
         const optionsContainer = btn.parentNode.querySelector('.options-container')
         if (btn.parentNode.classList.contains('checkboxes-container')) {
             optionsContainer.classList.toggle('options-container_collapsed-60')
         } else if (btn.parentNode.classList.contains('inputs-range-container')) {
             optionsContainer.classList.toggle('options-container_collapsed-57')
         }
-        
+
         if (!optionsContainer.classList.contains('options-container_collapsed-60') && !optionsContainer.classList.contains('options-container_collapsed-57')) {
             btn.innerHTML = 'скрыть <svg xmlns="http://www.w3.org/2000/svg" width="16" height="11" viewBox="0 0 16 11" fill="none"><path d="M1 10L8 2L15 10" stroke="#444460" stroke-width="2"/></svg>'
         } else {

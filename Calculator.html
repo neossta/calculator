@@ -193,7 +193,7 @@
             margin-right: 40px;
             position: relative
         }
-       
+
 
         @media screen and (max-width: 540px) {
             .row {
@@ -373,19 +373,23 @@
             gap: 20px;
         }
 
-        .options-container_collapsed-60 {
-            max-height: 280px;
-            overflow: hidden;
+        @media screen and (min-width:768px) {
+            .options-container_collapsed-60 {
+                max-height: 280px;
+                overflow: hidden;
+            }
+
+            .options-container_collapsed-57 {
+                max-height: 490px;
+                overflow: hidden;
+            }
         }
+
         /* @media screen and (min-width:1025px) and (max-width: 1200px) {
             .options-container_collapsed-60 {
                 max-height: 58%;
             }
         } */
-        .options-container_collapsed-57 {
-            max-height: 490px;
-            overflow: hidden;
-        }
 
         /* @media screen and (min-width:768px) and (max-width: 1025px) {
             .options-container_collapsed-57 {
@@ -767,8 +771,8 @@
             box-shadow: 0 0 0.5px 5px #444460;
         }
 
-        .row > .info {
-            position:absolute;
+        .row>.info {
+            position: absolute;
             top: 45px;
             right: 25px;
         }
@@ -796,12 +800,12 @@
             bottom: 10px;
         }
 
-        .row > .info:hover::before {
+        .row>.info:hover::before {
             content: "Нажмите на +, чтобы добавить ещё один гараж";
             position: absolute;
             bottom: 10px;
             right: 5px;
-            
+
         }
 
         .collapse {
@@ -815,12 +819,12 @@
             margin-top: 60px;
             cursor: pointer;
         }
+
         @media screen and (max-width: 540px) {
             .collapse {
                 display: none;
             }
         }
-        
     </style>
     <title>Calculator</title>
 </head>
@@ -1055,4 +1059,5 @@
     </div>
     <script src="script.js"></script>
 </body>
+
 </html>
