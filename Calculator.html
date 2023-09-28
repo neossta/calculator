@@ -7,26 +7,29 @@
 
     <style>
         @font-face {
-            font-family: "TT Firs Neue";
+            font-family: "TTFirsNeue";
             font-style: normal;
             font-weight: 400;
-            src: url("/fonts/TTFirsNeue-Regular.woff") format("woff");
+            src: url("/fonts/TTFirsNeue-Regular.woff") format("woff"),
+                url("/fonts/TTFirsNeue-Regular.woff2") format("woff2");
             font-display: swap;
         }
 
         @font-face {
-            font-family: "TT Firs Neue";
+            font-family: "TTFirsNeue";
             font-style: normal;
             font-weight: 500;
-            src: url("/fonts/TTFirsNeue-Medium.woff") format("woff");
+            src: url("/fonts/TTFirsNeue-Medium.woff") format("woff"),
+                url("/fonts/TTFirsNeue-Medium.woff2") format("woff2");
             font-display: swap;
         }
 
         @font-face {
-            font-family: "TT Firs Neue";
+            font-family: "TTFirsNeue";
             font-style: normal;
             font-weight: 300;
-            src: url("/fonts/TTFirsNeue-Light.woff") format("woff");
+            src: url("/fonts/TTFirsNeue-Light.woff") format("woff"),
+                url("/fonts/TTFirsNeue-Light.woff2") format("woff2");
             font-display: swap;
         }
 
@@ -131,7 +134,7 @@
             background: #13131D;
             margin: 0;
             padding: 0;
-            font-family: "TT Firs Neue", "Arial", sans-serif;
+            font-family: "TTFirsNeue", "Arial", sans-serif;
         }
 
         header {
@@ -188,7 +191,9 @@
             padding-bottom: 60px;
             margin-left: 40px;
             margin-right: 40px;
+            position: relative
         }
+       
 
         @media screen and (max-width: 540px) {
             .row {
@@ -268,7 +273,6 @@
             line-height: 130%;
             /* 26px */
             text-transform: uppercase;
-            /* margin-right: 20px; */
             margin-bottom: 36px;
         }
 
@@ -369,7 +373,32 @@
             gap: 60px;
         }
 
-        @media screen and (min-width:1025px) and (max-width: 1230px) {
+        .options-container_collapsed-60 {
+            max-height: 60%;
+            overflow: hidden;
+        }
+        @media screen and (min-width:1025px) and (max-width: 1100px) {
+            .options-container_collapsed-60 {
+                max-height: 58%;
+            }
+        }
+        .options-container_collapsed-57 {
+            max-height: 57%;
+            overflow: hidden;
+        }
+
+        @media screen and (min-width:768px) and (max-width: 1025px) {
+            .options-container_collapsed-57 {
+                max-height: 56%;
+            }
+        }
+        @media screen and (min-width:768px) {
+            .row-collapsed {
+                padding-bottom: 0;
+        }
+        }
+
+        @media screen and (min-width:1000px) and (max-width: 1230px) {
             .options-container {
                 gap: 20px;
             }
@@ -419,7 +448,6 @@
             font-weight: 300;
             line-height: 130%;
             display: flex;
-            /* padding: 10px 10px 10px 0px; */
             justify-content: center;
             align-items: center;
             gap: 10px;
@@ -427,6 +455,10 @@
 
         .form-control_inactive {
             color: #eae0da8c;
+        }
+
+        .form-control_inactive svg rect {
+            fill: #eae0da8c;
         }
 
         .add-btn {
@@ -735,8 +767,10 @@
             box-shadow: 0 0 0.5px 5px #444460;
         }
 
-        .option .info {
-            margin-left: auto;
+        .row > .info {
+            position:absolute;
+            top: 45px;
+            right: 25px;
         }
 
         .info:hover::before {
@@ -762,12 +796,31 @@
             bottom: 10px;
         }
 
-        .option .info:hover::before {
+        .row > .info:hover::before {
             content: "Нажмите на +, чтобы добавить ещё один гараж";
             position: absolute;
-            bottom: 15px;
+            bottom: 10px;
             right: 5px;
+            
         }
+
+        .collapse {
+            color: #444460;
+            font-size: 20px;
+            font-weight: 500;
+            line-height: 20px;
+            /* 100% */
+            text-transform: uppercase;
+            padding-left: 35px;
+            margin-top: 60px;
+            cursor: pointer;
+        }
+        @media screen and (max-width: 540px) {
+            .collapse {
+                display: none;
+            }
+        }
+        
     </style>
     <title>Calculator</title>
 </head>
@@ -820,7 +873,10 @@
                     </div>
                 </div>
             </div>
-            <div class="row">
+            <div class="row row-collapsed">
+                <div class="info">
+                    <div class="info-content">!</div>
+                </div>
                 <div class="input-container">
                     <div class="info">
                         <div class="info-content">!</div>
@@ -828,132 +884,123 @@
                     <label for="range">Участок</label>
                     <div class="area">
                         <div class="input-wrapper">
-                            <input type="number" class="number-input" id="rangevalueplot" value="50"
-                                oninput="range.value=value">
+                            <input type="number" class="number-input" id="rangevalueplot" value="0"
+                                oninput="rangeland.value=value">
                         </div>
                         <p>соток</p>
                     </div>
-                    <input type="range" class="input-range" value="50" min="0" max="1000" id="rangeland"
+                    <input type="range" class="input-range" value="0" min="0" max="50" id="rangeland"
                         oninput="rangevalueplot.value=value" />
                 </div>
-                <div class="options-container">
-                    <div class="column">
-                        <div class="option">
-                            <input type="checkbox" name="terrace" id="r1">
-                            <label class="form-control" for="terrace">Терраса</label>
-                        </div>
-                        <div class="option">
-                            <input type="checkbox" name="grill" id="r2">
-                            <label class="form-control" for="grill">Гриль</label>
-                        </div>
-                        <div class="option">
-                            <input type="checkbox" name="fire-pit" id="r3">
-                            <label class="form-control" for="fire-pit">Кострище</label>
-                        </div>
-                        <div class="option">
-                            <input type="checkbox" name="arbor" id="r4">
-                            <label class="form-control" for="arbor">Беседка</label>
-                        </div>
-                        <div class="option">
-                            <input type="checkbox" name="water" id="r5">
-                            <label class="form-control" for="water">Водоём</label>
-                        </div>
-                        <div class="option">
-                            <input type="checkbox" name="open-pool" id="r6">
-                            <label class="form-control" for="open-pool">Открытый бассейн</label>
-                        </div>
-                    </div>
-                    <div class="column">
-                        <div class="option">
-                            <input type="checkbox" name="stream/fountain" id="r7">
-                            <label class="form-control" for="stream/fountain">Ручей/фонтан</label>
-                        </div>
-                        <div class="option">
-                            <input type="checkbox" name="greenhouse" id="r8">
-                            <label class="form-control" for="greenhouse">Оранжерея</label>
-                        </div>
-                        <div class="option">
-                            <input type="checkbox" name="garden" id="r9">
-                            <label class="form-control" for="garden">Сад</label>
-                        </div>
-                        <div class="option">
-                            <input type="checkbox" name="vegetable-garden" id="r10">
-                            <label class="form-control" for="vegetable-garden">Огород</label>
-                        </div>
-                        <div class="option">
-                            <input type="checkbox" name="sports-ground" id="r11">
-                            <label class="form-control" for="sports-ground">Спорт площадка</label>
-                        </div>
-                        <div class="option">
-                            <input type="checkbox" name="playground" id="r12">
-                            <label class="form-control" for="playground">Детская площадка</label>
-                        </div>
-                        <div class="option">
-                            <input type="checkbox" name="rock-garden" id="r13">
-                            <label class="form-control" for="rock-garden">Сад камней</label>
-                        </div>
-                    </div>
-                    <div class="column">
-                        <div class="option">
-                            <input type="checkbox" name="garage" id="r14">
-                            <label class="form-control" for="garage">
-                                <svg class="add-btn add-checkbox" xmlns="http://www.w3.org/2000/svg" width="15"
-                                    height="16" viewBox="0 0 15 16" fill="none">
-                                    <rect x="7" y="0.833374" width="1" height="15" fill="white" />
-                                    <rect y="7.83337" width="15" height="1" fill="white" />
-                                </svg>
-                                Гараж</label>
-                            <div class="info">
-                                <div class="info-content">!</div>
+                <div class="checkboxes-container">
+                    <div class="options-container options-container_collapsed-60">
+                        <div class="column">
+                            <div class="option">
+                                <input type="checkbox" name="terrace" id="r1">
+                                <label class="form-control" for="terrace">Терраса</label>
+                            </div>
+                            <div class="option">
+                                <input type="checkbox" name="grill" id="r2">
+                                <label class="form-control" for="grill">Гриль</label>
+                            </div>
+                            <div class="option">
+                                <input type="checkbox" name="fire-pit" id="r3">
+                                <label class="form-control" for="fire-pit">Кострище</label>
+                            </div>
+                            <div class="option">
+                                <input type="checkbox" name="arbor" id="r4">
+                                <label class="form-control" for="arbor">Беседка</label>
+                            </div>
+                            <div class="option">
+                                <input type="checkbox" name="water" id="r5">
+                                <label class="form-control" for="water">Водоём</label>
+                            </div>
+                            <div class="option">
+                                <input type="checkbox" name="open-pool" id="r6">
+                                <label class="form-control" for="open-pool">Открытый бассейн</label>
+                            </div>
+                            <div class="option">
+                                <input type="checkbox" name="hozblok" id="r20">
+                                <label class="form-control" for="hozblok">Хозблок</label>
+                            </div>
+                            <div class="option">
+                                <input type="checkbox" name="aviary" id="r21">
+                                <label class="form-control" for="aviary">Вольер</label>
                             </div>
                         </div>
-                        <div class="option">
-                            <input type="checkbox" name="garage" id="r15">
-                            <label class="form-control" for="garage">
-                                <div class="delete-btn delete-checkbox">&mdash;</div> Гараж
-                            </label>
+                        <div class="column">
+                            <div class="option">
+                                <input type="checkbox" name="stream/fountain" id="r7">
+                                <label class="form-control" for="stream/fountain">Ручей/фонтан</label>
+                            </div>
+                            <div class="option">
+                                <input type="checkbox" name="greenhouse" id="r8">
+                                <label class="form-control" for="greenhouse">Оранжерея</label>
+                            </div>
+                            <div class="option">
+                                <input type="checkbox" name="garden" id="r9">
+                                <label class="form-control" for="garden">Сад</label>
+                            </div>
+                            <div class="option">
+                                <input type="checkbox" name="vegetable-garden" id="r10">
+                                <label class="form-control" for="vegetable-garden">Огород</label>
+                            </div>
+                            <div class="option">
+                                <input type="checkbox" name="sports-ground" id="r11">
+                                <label class="form-control" for="sports-ground">Спорт площадка</label>
+                            </div>
+                            <div class="option">
+                                <input type="checkbox" name="playground" id="r12">
+                                <label class="form-control" for="playground">Детская площадка</label>
+                            </div>
+                            <div class="option">
+                                <input type="checkbox" name="rock-garden" id="r13">
+                                <label class="form-control" for="rock-garden">Сад камней</label>
+                            </div>
                         </div>
-                        <div class="option">
-                            <input type="checkbox" name="seasonal-equipment-garage" id="r16">
-                            <label class="form-control" for="seasonal-equipment-garage">Гараж сезон.техники</label>
+                        <div class="column">
+                            <div class="option">
+                                <input type="checkbox" name="garage" id="r14">
+                                <label class="form-control" for="garage">
+                                    <svg class="add-btn add-checkbox" xmlns="http://www.w3.org/2000/svg" width="15"
+                                        height="16" viewBox="0 0 15 16" fill="none">
+                                        <rect x="7" y="0.833374" width="1" height="15" fill="white" />
+                                        <rect y="7.83337" width="15" height="1" fill="white" />
+                                    </svg>
+                                    Гараж</label>
+                            </div>
+                            <div class="option">
+                                <input type="checkbox" name="seasonal-equipment-garage" id="r16">
+                                <label class="form-control" for="seasonal-equipment-garage">Гараж сезон.техники</label>
+                            </div>
+                            <div class="option">
+                                <input type="checkbox" name="canopy" id="r17">
+                                <label class="form-control" for="canopy">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="add-btn add-checkbox" width="15"
+                                        height="16" viewBox="0 0 15 16" fill="none">
+                                        <rect x="7" y="0.833374" width="1" height="15" fill="white" />
+                                        <rect y="7.83337" width="15" height="1" fill="white" />
+                                    </svg>
+                                    Навес</label>
+                            </div>
+                            <div class="option">
+                                <input type="checkbox" name="car-wash" id="r19">
+                                <label class="form-control" for="car-wash">Мойка машины</label>
+                            </div>
+                            <div class="option">
+                                <input type="checkbox" name="other" id="r22">
+                                <label class="form-control" for="other">Другое</label>
+                            </div>
                         </div>
-                        <div class="option">
-                            <input type="checkbox" name="canopy" id="r17">
-                            <label class="form-control" for="canopy">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="add-btn add-checkbox" width="15"
-                                    height="16" viewBox="0 0 15 16" fill="none">
-                                    <rect x="7" y="0.833374" width="1" height="15" fill="white" />
-                                    <rect y="7.83337" width="15" height="1" fill="white" />
-                                </svg>
-                                Навес</label>
-                        </div>
-                        <div class="option">
-                            <input type="checkbox" name="canopy" id="r18">
-                            <label class="form-control" for="canopy">
-                                <div class="delete-btn delete-checkbox">&mdash;</div>
-                                Навес
-                            </label>
-                        </div>
-                        <div class="option">
-                            <input type="checkbox" name="car-wash" id="r19">
-                            <label class="form-control" for="car-wash">Мойка машины</label>
-                        </div>
-                        <div class="option">
-                            <input type="checkbox" name="hozblok" id="r20">
-                            <label class="form-control" for="hozblok">Хозблок</label>
-                        </div>
-                        <div class="option">
-                            <input type="checkbox" name="aviary" id="r21">
-                            <label class="form-control" for="aviary">Вольер</label>
-                        </div>
-                        <div class="option">
-                            <input type="checkbox" name="other" id="r22">
-                            <label class="form-control" for="other">Другое</label>
-                        </div>
+                    </div>
+                    <div class="collapse">показать ещё
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="11" viewBox="0 0 16 11" fill="none">
+                            <path d="M1 1L8 9L15 1" stroke="#444460" stroke-width="2" />
+                        </svg>
                     </div>
                 </div>
             </div>
-            <div class="row">
+            <div class="row row-collapsed">
                 <div class="input-container">
                     <label for="range">Дом</label>
                     <div class="area">
@@ -966,12 +1013,19 @@
                     <input type="range" class="input-range" name="range" value="0" min="0" max="1355" id="rangehouse"
                         oninput="rangevaluehouse.value=value" />
                 </div>
-                <div class="options-container">
-                    <div class="column" id="column1">
+                <div class="inputs-range-container">
+                    <div class="options-container  options-container_collapsed-57">
+                        <div class="column" id="column1">
+                        </div>
+                        <div class="column" id="column2">
+                        </div>
+                        <div class="column" id="column3">
+                        </div>
                     </div>
-                    <div class="column" id="column2">
-                    </div>
-                    <div class="column" id="column3">
+                    <div class="collapse">показать ещё
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="11" viewBox="0 0 16 11" fill="none">
+                            <path d="M1 1L8 9L15 1" stroke="#444460" stroke-width="2" />
+                        </svg>
                     </div>
                 </div>
             </div>
@@ -1001,5 +1055,4 @@
     </div>
     <script src="script.js"></script>
 </body>
-
 </html>

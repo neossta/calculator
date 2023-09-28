@@ -1,32 +1,28 @@
 let rooms = [
-    { name: 'Прихожая', area: '2', min: '2', max: '20', id: 'hallway', deletable: false },
-    { name: 'Котельная', area: '10', min: '9', max: '20', id: 'boiler-room', deletable: false },
-    { name: 'Гостиная', area: '20', min: '20', max: '100', id: 'living-room', deletable: false },
-    { name: 'Кухня', area: '9', min: '9', max: '50', id: 'kitchen', deletable: false },
-    { name: 'Черновая кухня', area: '6', min: '6', max: '30', id: 'additional-kitchen', deletable: false },
-    { name: 'Столовая', area: '10', min: '10', max: '50', id: 'dining-room', deletable: false },
-    { name: 'Кладовая', area: '1', min: '1', max: '20', id: 'storeroom', deletable: false },
-    { name: 'Детская', area: '25', min: '10', max: '100', id: 'childrens-room-1', deletable: false, cloneable: true },
-    { name: 'Детская', area: '10', min: '10', max: '100', id: 'childrens-room-2', deletable: true },
+    { name: 'Прихожая', area: '6', min: '2', max: '20', id: 'hallway', deletable: false },
+    { name: 'Котельная', area: '12', min: '9', max: '20', id: 'boiler-room', deletable: false },
+    { name: 'Гостиная', area: '40', min: '20', max: '100', id: 'living-room', deletable: false },
+    { name: 'Кухня', area: '15', min: '9', max: '50', id: 'kitchen', deletable: false },
+    { name: 'Черновая кухня', area: '0', min: '6', max: '30', id: 'additional-kitchen', deletable: false },
+    { name: 'Столовая', area: '20', min: '10', max: '50', id: 'dining-room', deletable: false },
+    { name: 'Кладовая', area: '3', min: '1', max: '20', id: 'storeroom', deletable: false },
+    { name: 'Детская', area: '30', min: '10', max: '100', id: 'childrens-room-1', deletable: false, cloneable: true },
     { name: 'Кабинет / Библиотека', area: '30', min: '10', max: '100', id: 'cabinet-1', deletable: false, cloneable: true },
-    { name: 'Кабинет / Библиотека', area: '10', min: '10', max: '100', id: 'cabinet-2', deletable: true },
-    { name: 'Массажная', area: '10', min: '10', max: '20', id: 'massage-room', deletable: false },
-    { name: 'Кинозал', area: '50', min: '10', max: '50', id: 'cinema-room', deletable: false },
-    { name: 'Гостевая спальня', area: '40', min: '10', max: '100', id: 'guest-room-1', deletable: false, cloneable: true },
-    { name: 'Гостевая спальня', area: '10', min: '10', max: '100', id: 'guest-room-2', deletable: true },
-    { name: 'Гостевой туалет', area: '9', min: '2', max: '9', id: 'guest-toilet', deletable: false },
-    { name: 'Гостевая гардеробная', area: '2', min: '2', max: '20', id: 'guest-dressing-room', deletable: false },
-    { name: 'Сезонная гардеробная', area: '4', min: '4', max: '20', id: 'seasonal-dressing-room', deletable: false },
+    { name: 'Массажная', area: '0', min: '10', max: '20', id: 'massage-room', deletable: false },
+    { name: 'Кинозал', area: '0', min: '10', max: '50', id: 'cinema-room', deletable: false },
+    { name: 'Гостевая спальня', area: '20', min: '10', max: '100', id: 'guest-room-1', deletable: false, cloneable: true },
+    { name: 'Гостевой туалет', area: '2', min: '2', max: '9', id: 'guest-toilet', deletable: false },
+    { name: 'Гостевая гардеробная', area: '4', min: '2', max: '20', id: 'guest-dressing-room', deletable: false },
+    { name: 'Сезонная гардеробная', area: '6', min: '4', max: '20', id: 'seasonal-dressing-room', deletable: false },
     { name: 'Садовая подсобка', area: '3', min: '3', max: '20', id: 'garden-utility-room', deletable: false },
-    { name: 'Гараж', area: '18', min: '18', max: '60', id: 'garden-utility-room', deletable: false },
-    { name: 'Прачечная', area: '4', min: '4', max: '20', id: 'laundry', deletable: false },
-    { name: 'Спортзал', area: '10', min: '10', max: '100', id: 'gym', deletable: false },
-    { name: 'Помещение для отходов', area: '1', min: '1', max: '6', id: 'trash-room', deletable: false },
-    { name: 'Мастер спальня', area: '10', min: '10', max: '100', id: 'master-bedroom-1', deletable: false, cloneable: true },
-    { name: 'Мастер-спальня', area: '35', min: '10', max: '100', id: 'master-bedroom-2', deletable: true },
+    { name: 'Гараж', area: '36', min: '18', max: '60', id: 'garden-utility-room', deletable: false, cloneable: true },
+    { name: 'Прачечная', area: '10', min: '4', max: '20', id: 'laundry', deletable: false },
+    { name: 'Спортзал', area: '0', min: '10', max: '100', id: 'gym', deletable: false },
+    { name: 'Помещение для отходов', area: '2', min: '1', max: '6', id: 'trash-room', deletable: false },
+    { name: 'Мастер спальня', area: '40', min: '10', max: '100', id: 'master-bedroom-1', deletable: false, cloneable: true },
     { name: 'Спец.комната', area: '0', min: '1', max: '100', id: 'special-room-1', deletable: false, cloneable: true },
     { name: 'Бассейн', area: '0', min: '20', max: '100', id: 'pool', deletable: false },
-    { name: 'Комната отдыха / медитации', area: '10', min: '10', max: '20', id: 'meditation-room', deletable: false },
+    { name: 'Комната отдыха / медитации', area: '0', min: '10', max: '20', id: 'meditation-room', deletable: false },
     { name: 'Кухня-гостиная персонала', area: '0', min: '10', max: '50', id: 'kithen-living-room-for-staff', deletable: false },
     { name: 'Баня', area: '0', id: 'bathhouse', max: '50', min: '6', id: 'bathhouse', deletable: false }
 ]
@@ -68,78 +64,78 @@ const column2 = document.getElementById("column2")
 const column3 = document.getElementById("column3")
 
 function RenderColumnElements() {
-    for (let i = 0; i <= 10; i++) {
+    for (let i = 0; i <= 9; i++) {
         createRangeElement(rooms[i], column1)
     }
-    for (let i = 11; i <= 20; i++) {
+    for (let i = 10; i <= 18; i++) {
         createRangeElement(rooms[i], column2)
     }
-    for (let i = 21; i <= 29; i++) {
+    for (let i = 19; i <= (rooms.length - 1); i++) {
         createRangeElement(rooms[i], column3)
     }
 }
 RenderColumnElements()
 function createRangeElement(room, column) {
-    const container = document.createElement("div");
-    container.className = "range-container";
+    const container = document.createElement("div")
+    container.className = "range-container"
 
     const info = document.createElement("div");
-    info.className = "range-info";
+    info.className = "range-info"
 
-    const label = document.createElement("label");
-    label.className = "form-control";
-    label.htmlFor = "range";
-    label.textContent = room.name;
+    const label = document.createElement("label")
+    label.className = "form-control"
+    label.htmlFor = "range"
+    label.textContent = room.name
 
     const output = document.createElement("output");
-    output.id = "rangevalue1";
-    output.textContent = room.area;
+    output.id = "rangevalue1"
+    output.textContent = room.area
 
-    const span = document.createElement("span");
-    span.textContent = "кв.м";
+    const span = document.createElement("span")
+    span.textContent = "кв.м"
 
     if (room.deletable) {
         const div = document.createElement("div")
         div.setAttribute("class", "delete-btn delete-range-input")
         div.textContent = "—"
-        label.prepend(div);
+        label.prepend(div)
     }
     if (room.cloneable) {
-        const svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
-        svg.setAttribute("class", "add-btn add-range-input");
-        svg.setAttribute("width", "15");
-        svg.setAttribute("height", "16");
-        svg.setAttribute("viewBox", "0 0 15 16");
-        svg.setAttribute("fill", "none");
+        const svg = document.createElementNS("http://www.w3.org/2000/svg", "svg")
+        svg.setAttribute("class", "add-btn add-range-input")
+        svg.setAttribute("width", "15")
+        svg.setAttribute("height", "16")
+        svg.setAttribute("viewBox", "0 0 15 16")
+        svg.setAttribute("fill", "none")
 
-        const rect1 = document.createElementNS("http://www.w3.org/2000/svg", "rect");
-        rect1.setAttribute("x", "7");
-        rect1.setAttribute("y", "0.833374");
-        rect1.setAttribute("width", "1");
-        rect1.setAttribute("height", "15");
-        rect1.setAttribute("fill", "white");
+        const rect1 = document.createElementNS("http://www.w3.org/2000/svg", "rect")
+        rect1.setAttribute("x", "7")
+        rect1.setAttribute("y", "0.833374")
+        rect1.setAttribute("width", "1")
+        rect1.setAttribute("height", "15")
+        rect1.setAttribute("fill", "white")
 
-        const rect2 = document.createElementNS("http://www.w3.org/2000/svg", "rect");
-        rect2.setAttribute("y", "7.83337");
-        rect2.setAttribute("width", "15");
-        rect2.setAttribute("height", "1");
-        rect2.setAttribute("fill", "white");
+        const rect2 = document.createElementNS("http://www.w3.org/2000/svg", "rect")
+        rect2.setAttribute("y", "7.83337")
+        rect2.setAttribute("width", "15")
+        rect2.setAttribute("height", "1")
+        rect2.setAttribute("fill", "white")
 
-        svg.appendChild(rect1);
-        svg.appendChild(rect2);
+        svg.appendChild(rect1)
+        svg.appendChild(rect2)
 
-        label.prepend(svg);
+        label.prepend(svg)
     }
 
-    const input = document.createElement("input");
-    input.type = "range";
-    input.className = "input-range";
-    input.value = room.area;
-    input.min = "0";
-    input.max = room.max;
-    input.id = room.id;
+    const input = document.createElement("input")
+    input.type = "range"
+    input.className = "input-range"
+    input.value = room.area
+    input.min = (room.id === "hallway" || room.id === "living-room" || room.id === "dining-room" || room.id === "kitchen" || room.id === "boiler-room" || room.id === "master-bedroom-1") ? room.min : "0"
+    input.max = room.max
+    input.id = room.id
     input.oninput = function () {
-        output.textContent = this.value;
+        output.textContent = this.value
     };
 
     info.appendChild(label);
@@ -165,6 +161,28 @@ const addCheckboxButtons = document.querySelectorAll('.add-checkbox')
 let deleteCheckboxButtons = document.querySelectorAll('.delete-checkbox')
 let selectedDecoration = document.querySelector('.tabs__item_selected')
 const tabsItems = document.querySelectorAll('.tabs__item')
+const collapseBtns = document.querySelectorAll('.collapse')
+
+collapseBtns.forEach(btn => {
+    btn.addEventListener('click', function(e) {
+        const optionsContainer = btn.parentNode.querySelector('.options-container')
+        const row = btn.parentNode.parentNode
+        if (btn.parentNode.classList.contains('checkboxes-container')) {
+            optionsContainer.classList.toggle('options-container_collapsed-60')
+            row.classList.toggle('row-collapsed')
+        } else if (btn.parentNode.classList.contains('inputs-range-container')) {
+            optionsContainer.classList.toggle('options-container_collapsed-57')
+            row.classList.toggle('row-collapsed')
+        }
+        
+        if (!optionsContainer.classList.contains('options-container_collapsed-60') && !optionsContainer.classList.contains('options-container_collapsed-57')) {
+            btn.innerHTML = 'скрыть <svg xmlns="http://www.w3.org/2000/svg" width="16" height="11" viewBox="0 0 16 11" fill="none"><path d="M1 10L8 2L15 10" stroke="#444460" stroke-width="2"/></svg>'
+        } else {
+            btn.innerHTML = 'показать ещё <svg xmlns="http://www.w3.org/2000/svg" width="16" height="11" viewBox="0 0 16 11" fill="none"><path d="M1 1L8 9L15 1" stroke="#444460" stroke-width="2"/></svg>'
+        }
+    })
+})
+
 
 tabsItems.forEach(tab => {
     tab.addEventListener('click', function (e) {
@@ -172,24 +190,13 @@ tabsItems.forEach(tab => {
         e.currentTarget.classList.add('tabs__item_selected')
         selectedDecoration = document.querySelector('.tabs__item_selected')
         calculateBudget()
-        document.querySelector('.budget__sum').innerHTML = budget.toFixed(1)
+        document.querySelector('.budget__sum').innerHTML = budget
         calculateTime()
         document.querySelector('.time__number-years').innerHTML = Math.floor(time)
         document.querySelector('.time__number-months').innerHTML = Math.floor((time % 1) * 10)
     })
 })
 
-outdoorFacilities.forEach(f => {
-    if (f.amount > 0) {
-        landArea += 25
-    }
-})
-landAreaNumberInput.value = landArea
-landAreaRangeInput.value = landArea
-const min = landAreaRangeInput.min
-const max = landAreaRangeInput.max
-const val = landAreaRangeInput.value
-landAreaRangeInput.style.backgroundSize = (val - min) * 100 / (max - min) + '% 100%'
 
 checkboxInputs.forEach(i => {
     i.addEventListener('input', checkboxesHandler)
@@ -199,25 +206,17 @@ function checkboxesHandler(e) {
         if (f.name === e.target.name) {
             if (e.target.checked) {
                 f.amount += 1
-                landArea += 25
             } else {
                 f.amount -= 1
-                landArea -= 25
             }
         }
         calculateBudget()
-        document.querySelector('.budget__sum').innerHTML = budget.toFixed(1)
+        document.querySelector('.budget__sum').innerHTML = budget
         calculateTime()
         document.querySelector('.time__number-years').innerHTML = Math.floor(time)
         document.querySelector('.time__number-months').innerHTML = Math.floor((time % 1) * 10)
     })
 
-    landAreaNumberInput.value = landArea
-    landAreaRangeInput.value = landArea
-    const min = landAreaRangeInput.min
-    const max = landAreaRangeInput.max
-    const val = landAreaRangeInput.value
-    landAreaRangeInput.style.backgroundSize = (val - min) * 100 / (max - min) + '% 100%'
 }
 addCheckboxButtons.forEach(btn => {
     btn.addEventListener('click', function (e) {
@@ -259,22 +258,14 @@ function deleteOption(e) {
         outdoorFacilities.forEach(f => {
             if (f.name === input.name) {
                 f.amount -= 1
-                landArea -= 25
             }
             calculateBudget()
-            document.querySelector('.budget__sum').innerHTML = budget.toFixed(1)
+            document.querySelector('.budget__sum').innerHTML = budget
             calculateTime()
             document.querySelector('.time__number-years').innerHTML = Math.floor(time)
             document.querySelector('.time__number-months').innerHTML = Math.floor((time % 1) * 10)
         })
     }
-
-    landAreaNumberInput.value = landArea
-    landAreaRangeInput.value = landArea
-    const min = landAreaRangeInput.min
-    const max = landAreaRangeInput.max
-    const val = landAreaRangeInput.value
-    landAreaRangeInput.style.backgroundSize = (val - min) * 100 / (max - min) + '% 100%'
     option.remove()
     deleteCheckboxButtons = document.querySelectorAll('.delete-checkbox')
     checkboxInputs = document.querySelectorAll('input[type="checkbox"]')
@@ -297,9 +288,7 @@ addRangeInputButtons.forEach(btn => {
         idParts[idParts.length - 1] = idNumber
         let newId = idParts.join("-")
         while (rooms.some(room => room.id === newId)) {
-            console.log('true')
             idNumber++
-            console.log(idNumber)
             idParts[idParts.length - 1] = idNumber
             newId = idParts.join("-")
         }
@@ -317,15 +306,19 @@ addRangeInputButtons.forEach(btn => {
         deleteBtn.addEventListener('click', deleteRangeElement)
         rangeInputs = document.querySelectorAll('input[type="range"]')
         rangeContainers = document.querySelectorAll('.range-container')
-        deleteButtons = document.querySelectorAll('.delete-btn')
+        deleteRangeInputButtons = document.querySelectorAll('.delete-range-input')
         houseArea = 0
         rooms.forEach(room => {
-            houseArea += Number(room.area);
+            houseArea += Number(room.area)
         })
-        houseAreaInput.value = houseArea
-        houseRangeInput.value = houseArea
+        houseAreaInput.value = Math.ceil(houseArea)
+        houseRangeInput.value = Math.ceil(houseArea)
+        landArea = houseArea / 100
+        landAreaNumberInput.value = Math.ceil(landArea)
+        landAreaRangeInput.value = Math.ceil(landArea)
+        landAreaRangeInput.style.backgroundSize = (landAreaRangeInput.value - landAreaRangeInput.min) * 100 / (landAreaRangeInput.max - landAreaRangeInput.min) + '% 100%'
         calculateBudget()
-        document.querySelector('.budget__sum').innerHTML = budget.toFixed(1)
+        document.querySelector('.budget__sum').innerHTML = budget
         calculateTime()
         document.querySelector('.time__number-years').innerHTML = Math.floor(time)
         document.querySelector('.time__number-months').innerHTML = Math.floor((time % 1) * 10)
@@ -335,18 +328,21 @@ function deleteRangeElement(e) {
     const rangeContainer = e.target.closest('.range-container')
     const input = rangeContainer.querySelector('input')
     rooms = rooms.filter(room => room.id !== input.id)
-    console.log(rooms)
     rangeContainer.remove()
     rangeContainers = document.querySelectorAll('.range-container')
     rangeInputs = document.querySelectorAll('input[type="range"]')
     houseArea = 0
     rooms.forEach(room => {
-        houseArea += Number(room.area);
+        houseArea += Number(room.area)
     })
-    houseAreaInput.value = houseArea
-    houseRangeInput.value = houseArea
+    houseAreaInput.value = Math.ceil(houseArea)
+    houseRangeInput.value = Math.ceil(houseArea)
+    landArea = houseArea / 100
+    landAreaNumberInput.value = Math.ceil(landArea)
+    landAreaRangeInput.value = Math.ceil(landArea)
+    landAreaRangeInput.style.backgroundSize = (landAreaRangeInput.value - landAreaRangeInput.min) * 100 / (landAreaRangeInput.max - landAreaRangeInput.min) + '% 100%'
     calculateBudget()
-    document.querySelector('.budget__sum').innerHTML = budget.toFixed(1)
+    document.querySelector('.budget__sum').innerHTML = budget
     calculateTime()
     document.querySelector('.time__number-years').innerHTML = Math.floor(time)
     document.querySelector('.time__number-months').innerHTML = Math.floor((time % 1) * 10)
@@ -380,28 +376,39 @@ function updateContent(input, span, output) {
         return
     }
     if (input.value == 0) {
-        span.innerHTML = "";
-        output.innerHTML = "";
+        span.innerHTML = ""
+        output.innerHTML = ""
+        input.classList.add('input-range_inactive')
+        input.closest('.range-container').querySelector('label').classList.add('form-control_inactive')
     } else {
         // Restore the original value
-        span.innerHTML = "кв.м";
-        output.innerHTML = input.value;
+        span.innerHTML = "кв.м"
+        output.innerHTML = input.value
+        input.classList.toggle('input-range_inactive', false)
+        input.closest('.range-container').querySelector('label').classList.toggle('form-control_inactive', false)
     }
 }
 rooms.forEach(room => {
-    houseArea += Number(room.area);
+    houseArea += Number(room.area)
 })
-if (houseArea === 0) {
-    input.classList.add('input-range_inactive')
-    el.querySelector('label').classList.add('form-control_inactive')
-}
+
 houseAreaInput.value = houseArea
 houseRangeInput.value = houseArea
+landArea = houseArea / 100
+landAreaNumberInput.value = Math.ceil(landArea)
+landAreaRangeInput.value = Math.ceil(landArea)
+landAreaRangeInput.style.backgroundSize = (landAreaRangeInput.value - landAreaRangeInput.min) * 100 / (landAreaRangeInput.max - landAreaRangeInput.min) + '% 100%'
 rangeInputs.forEach(input => {
     const min = input.min
     const max = input.max
     const val = input.value
     input.style.backgroundSize = (val - min) * 100 / (max - min) + '% 100%'
+})
+landAreaNumberInput.addEventListener('keydown', function (e) {
+    const inputValue = Number(e.target.value + e.key)
+    if (inputValue > 50) {
+        e.preventDefault()
+    }
 })
 function handleInputChange(e) {
     let target = e.target
@@ -415,16 +422,12 @@ function handleInputChange(e) {
             }
             const prevHouseArea = houseArea
             houseArea = Number(e.target.value)
-            if (houseArea === 0) {
-                rangeContainers.forEach(el => {
-                    el.querySelector('label').classList.add('form-control_inactive')
-                    el.querySelector('input').classList.add('range-input_inactive')
-                })
-            } else {
-                rangeContainers.forEach(el => {
-                    el.querySelector('label').classList.toggle('form-control_inactive', false)
-                    el.querySelector('input').classList.toggle('range-input_inactive', false)
-                })
+            if (houseArea > (landArea * 100)) {
+                landArea = houseArea / 100
+                landAreaNumberInput.value = Math.ceil(landArea)
+                landAreaRangeInput.value = Math.ceil(landArea)
+                landAreaRangeInput.style.backgroundSize = (landAreaRangeInput.value - landAreaRangeInput.min) * 100 / (landAreaRangeInput.max - landAreaRangeInput.min) + '% 100%'
+
             }
             let areaChangeRatio = 1
             if (prevHouseArea > 0) {
@@ -448,7 +451,7 @@ function handleInputChange(e) {
                         input.value = Math.round(room.area)
                         input.style.backgroundSize = (input.value - input.min) * 100 / (input.max - input.min) + '% 100%'
                     }
-                    updateContent(input, el.querySelector('span'), el.querySelector('output'));
+                    updateContent(input, el.querySelector('span'), el.querySelector('output'))
                 })
             })
 
@@ -462,17 +465,50 @@ function handleInputChange(e) {
             const val = target.value
             target.style.backgroundSize = (val - min) * 100 / (max - min) + '% 100%'
             calculateBudget()
-            document.querySelector('.budget__sum').innerHTML = budget.toFixed(1)
+            document.querySelector('.budget__sum').innerHTML = budget
             calculateTime()
             document.querySelector('.time__number-years').innerHTML = Math.floor(time)
             document.querySelector('.time__number-months').innerHTML = Math.floor((time % 1) * 10)
-            return;
+            return
         } else if (e.target.id === 'rangevalueplot') {
             target = document.getElementById('rangeland')
+            let prevArea = landArea
+            let areaChangeRatio = 1
             landArea = Number(e.target.value)
+            if ((landArea * 100) < houseArea) {
+                if (prevArea > 0) {
+                    areaChangeRatio = landArea / prevArea; // calculate the change ratio
+                }
+            }
+            rooms.forEach(room => {
+                room.area *= areaChangeRatio
+            })
+
         }
     } else if (e.target.id === 'rangeland') {
+        let prevArea = landArea
         landArea = Number(e.target.value)
+
+        let areaChangeRatio = 1
+        landArea = Number(e.target.value)
+        if ((landArea * 100) < houseArea) {
+            if (prevArea > 0) {
+                areaChangeRatio = landArea / prevArea // calculate the change ratio
+            }
+        }
+        rooms.forEach(room => {
+            room.area *= areaChangeRatio
+        })
+        rangeContainers.forEach(cnt => {
+            let input = cnt.querySelector('input')
+            rooms.forEach(room => {
+                if (room.id === input.id) {
+                    input.value = Math.ceil(room.area)
+                    cnt.querySelector('output').value = Math.ceil(room.area)
+                    input.style.backgroundSize = (input.value - input.min) * 100 / (input.max - input.min) + '% 100%'
+                }
+            })
+        })
     }
     else if (e.target.id === 'rangehouse') {
         if (houseArea > 0) {
@@ -486,6 +522,13 @@ function handleInputChange(e) {
         }
         const prevHouseArea = houseArea
         houseArea = Number(e.target.value)
+        if (houseArea > (landArea * 100)) {
+            landArea = houseArea / 100
+            landAreaNumberInput.value = Math.ceil(landArea)
+            landAreaRangeInput.value = Math.ceil(landArea)
+            landAreaRangeInput.style.backgroundSize = (landAreaRangeInput.value - landAreaRangeInput.min) * 100 / (landAreaRangeInput.max - landAreaRangeInput.min) + '% 100%'
+
+        }
         let areaChangeRatio = 1
         if (prevHouseArea > 0) {
             areaChangeRatio = houseArea / prevHouseArea; // calculate the change ratio
@@ -502,28 +545,17 @@ function handleInputChange(e) {
                     input.value = Math.round(room.area)
                     input.style.backgroundSize = (input.value - input.min) * 100 / (input.max - input.min) + '% 100%'
                 }
-                updateContent(input, el.querySelector('span'), el.querySelector('output'));
+                updateContent(input, el.querySelector('span'), el.querySelector('output'))
             })
         })
 
-        if (houseArea === 0) {
-            rangeContainers.forEach(el => {
-                el.querySelector('label').classList.add('form-control_inactive')
-                el.querySelector('input').classList.add('range-input_inactive')
-            })
-        } else {
-            rangeContainers.forEach(el => {
-                el.querySelector('label').classList.toggle('form-control_inactive', false)
-                el.querySelector('input').classList.toggle('range-input_inactive', false)
-            })
-        }
         houseAreaInput.value = houseArea
         const min = target.min
         const max = target.max
         const val = e.target.value
         target.style.backgroundSize = (val - min) * 100 / (max - min) + '% 100%'
         calculateBudget()
-        document.querySelector('.budget__sum').innerHTML = budget.toFixed(1)
+        document.querySelector('.budget__sum').innerHTML = budget
         calculateTime()
         document.querySelector('.time__number-years').innerHTML = Math.floor(time)
         document.querySelector('.time__number-months').innerHTML = Math.floor((time % 1) * 10)
@@ -544,26 +576,30 @@ function handleInputChange(e) {
     })
     houseArea = 0
     rooms.forEach(room => {
-        houseArea += Number(room.area);
+        houseArea += Number(room.area)
     })
-    if (houseArea === 0) {
-        rangeContainers.forEach(el => {
-            el.querySelector('label').classList.add('form-control_inactive')
-            el.querySelector('input').classList.add('range-input_inactive')
-        })
-    } else {
-        rangeContainers.forEach(el => {
-            el.querySelector('label').classList.toggle('form-control_inactive', false)
-            el.querySelector('input').classList.toggle('range-input_inactive', false)
-        })
-    }
-    houseAreaInput.value = houseArea
+    rangeContainers.forEach(cnt => {
+        if (houseArea === 0) {
+            const input = cnt.querySelector('input')
+            input.value = 0
+            input.style.backgroundSize = 0
+            updateContent(input, cnt.querySelector('span'), cnt.querySelector('output'))
+        }
+    })
+    houseAreaInput.value = Math.ceil(houseArea)
     const houseRangeInput = document.getElementById('rangehouse')
-    houseRangeInput.value = houseArea
-    houseRangeInput.style.backgroundSize = (houseArea - houseRangeInput.min) * 100 / (houseRangeInput.max - houseRangeInput.min) + '% 100%'
+    houseRangeInput.value = Math.ceil(houseArea)
+    houseRangeInput.style.backgroundSize = (Math.ceil(houseArea) - houseRangeInput.min) * 100 / (houseRangeInput.max - houseRangeInput.min) + '% 100%'
     target.style.backgroundSize = (val - min) * 100 / (max - min) + '% 100%'
+    if (target.id != "rangevalueplot" && target.id != "rangeland" && (houseArea / 100) > landArea) {
+        landArea = houseArea / 100
+        landAreaNumberInput.value = Math.ceil(landArea)
+        landAreaRangeInput.value = Math.ceil(landArea)
+        landAreaRangeInput.style.backgroundSize = (landAreaRangeInput.value - landAreaRangeInput.min) * 100 / (landAreaRangeInput.max - landAreaRangeInput.min) + '% 100%'
+    }
+
     calculateBudget()
-    document.querySelector('.budget__sum').innerHTML = budget.toFixed(1)
+    document.querySelector('.budget__sum').innerHTML = budget
     calculateTime()
     document.querySelector('.time__number-years').innerHTML = Math.floor(time)
     document.querySelector('.time__number-months').innerHTML = Math.floor((time % 1) * 10)
@@ -576,12 +612,12 @@ numberInputs.forEach(input => {
     input.addEventListener('input', handleInputChange)
 })
 function calculateBudget() {
-    budget = (Number((houseArea + landArea)) * (selectedDecoration.id === 'exclusive' ? 2.5 : decoration[(selectedDecoration.id)]) * 200000) / 1000000
+    budget = Math.ceil(Number((houseArea) * (selectedDecoration.id === 'exclusive' ? decoration.exclusiveIncreased : decoration[(selectedDecoration.id)]) * 200000) / 1000000)
 }
 function calculateTime() {
-    if ((houseArea + landArea) < 600) {
+    if (houseArea < 600) {
         time = Math.ceil(1 * decoration[(selectedDecoration.id)] * 10) / 10
-    } else if ((houseArea + landArea) > 600 && (houseArea + landArea) <= 1200) {
+    } else if (houseArea >= 600 && (houseArea + landArea) <= 1200) {
         time = Math.ceil(1.5 * decoration[(selectedDecoration.id)] * 10) / 10
     }
 }
@@ -589,4 +625,4 @@ calculateBudget()
 calculateTime()
 document.querySelector('.time__number-years').innerHTML = Math.floor(time)
 document.querySelector('.time__number-months').innerHTML = Math.floor((time % 1) * 10)
-document.querySelector('.budget__sum').innerHTML = budget.toFixed(1)
+document.querySelector('.budget__sum').innerHTML = budget 
