@@ -318,7 +318,7 @@ addRangeInputButtons.forEach(btn => {
         setBudget()
         calculateTime()
         setTime()
-    });
+    })
 })
 function deleteRangeElement(e) {
     const rangeContainer = e.target.closest('.range-container')
@@ -405,6 +405,12 @@ landAreaNumberInput.addEventListener('keydown', function (e) {
         e.preventDefault()
     }
 })
+houseAreaInput.addEventListener('keydown', function (e) {
+    const inputValue = Number(e.target.value + e.key)
+    if (inputValue > 1355) {
+        e.preventDefault()
+    }
+})
 function handleInputChange(e) {
     let target = e.target
     if (e.target.type !== 'range') {
@@ -417,7 +423,7 @@ function handleInputChange(e) {
             }
             const prevHouseArea = houseArea
             houseArea = Number(e.target.value)
-            if (houseArea > (landArea * 100)) {
+            if (houseArea > (landArea * 100) && (houseArea / 100) <= 50) {
                 landArea = houseArea / 100
                 landAreaNumberInput.value = Math.ceil(landArea)
                 landAreaRangeInput.value = Math.ceil(landArea)
@@ -426,7 +432,7 @@ function handleInputChange(e) {
             }
             let areaChangeRatio = 1
             if (prevHouseArea > 0) {
-                areaChangeRatio = houseArea / prevHouseArea; // calculate the change ratio
+                areaChangeRatio = houseArea / prevHouseArea // calculate the change ratio
             }
             rooms.forEach(room => {
                 if (prevHouseArea === 0) {
@@ -471,7 +477,7 @@ function handleInputChange(e) {
             landArea = Number(e.target.value)
             if ((landArea * 100) < houseArea) {
                 if (prevArea > 0) {
-                    areaChangeRatio = landArea / prevArea; // calculate the change ratio
+                    areaChangeRatio = landArea / prevArea
                 }
             }
             rooms.forEach(room => {
@@ -525,13 +531,20 @@ function handleInputChange(e) {
         }
         let areaChangeRatio = 1
         if (prevHouseArea > 0) {
-            areaChangeRatio = houseArea / prevHouseArea; // calculate the change ratio
+            areaChangeRatio = houseArea / prevHouseArea
         }
+
         rooms.forEach(room => {
             if (prevHouseArea === 0) {
                 room.area = houseArea / 100 * room.percentage
+                if (room.area > room.max) {
+                    room.area = room.max
+                }
             } else {
                 room.area *= areaChangeRatio
+                if (room.area > room.max) {
+                    room.area = room.max
+                }
             }
             rangeContainers.forEach(el => {
                 let input = el.querySelector('input')
@@ -571,6 +584,7 @@ function handleInputChange(e) {
     rooms.forEach(room => {
         houseArea += Number(room.area)
     })
+
     rangeContainers.forEach(cnt => {
         if (houseArea === 0) {
             const input = cnt.querySelector('input')
@@ -609,7 +623,7 @@ function calculateBudget() {
 function calculateTime() {
     if (houseArea < 600) {
         time = Math.ceil(1 * decoration[(selectedDecoration.id)] * 10) / 10
-    } else if (houseArea >= 600 && houseArea  <= 1355) {
+    } else if (houseArea >= 600 && houseArea <= 1355) {
         time = Math.ceil(1.5 * decoration[(selectedDecoration.id)] * 10) / 10
     }
 }
@@ -622,8 +636,8 @@ function updateYearAndMonthDisplay(month) {
         document.querySelector('.time__month').innerHTML = "месяца"
     } else if (month >= 5 && month <= 11) {
         document.querySelector('.time__month').innerHTML = "месяцев"
-    } 
-    
+    }
+
     if (+years.innerHTML === 1) {
         document.querySelector('.time__year').innerHTML = "год"
     } else if (+years.innerHTML >= 2 && +years.innerHTML <= 4) {
