@@ -162,6 +162,9 @@ let deleteCheckboxButtons = document.querySelectorAll('.delete-checkbox')
 let selectedDecoration = document.querySelector('.tabs__item_selected')
 const tabsItems = document.querySelectorAll('.tabs__item')
 const collapseBtns = document.querySelectorAll('.collapse')
+const years = document.querySelector('.time__number-years')
+const months = document.querySelector('.time__number-months')
+const budgetEl = document.querySelector('.budget__sum')
 
 collapseBtns.forEach(btn => {
     btn.addEventListener('click', function (e) {
@@ -187,10 +190,9 @@ tabsItems.forEach(tab => {
         e.currentTarget.classList.add('tabs__item_selected')
         selectedDecoration = document.querySelector('.tabs__item_selected')
         calculateBudget()
-        document.querySelector('.budget__sum').innerHTML = budget
+        setBudget()
         calculateTime()
-        document.querySelector('.time__number-years').innerHTML = Math.floor(time)
-        document.querySelector('.time__number-months').innerHTML = Math.floor((time % 1) * 10)
+        setTime()
     })
 })
 
@@ -208,10 +210,9 @@ function checkboxesHandler(e) {
             }
         }
         calculateBudget()
-        document.querySelector('.budget__sum').innerHTML = budget
+        setBudget()
         calculateTime()
-        document.querySelector('.time__number-years').innerHTML = Math.floor(time)
-        document.querySelector('.time__number-months').innerHTML = Math.floor((time % 1) * 10)
+        setTime()
     })
 
 }
@@ -257,10 +258,9 @@ function deleteOption(e) {
                 f.amount -= 1
             }
             calculateBudget()
-            document.querySelector('.budget__sum').innerHTML = budget
+            setBudget()
             calculateTime()
-            document.querySelector('.time__number-years').innerHTML = Math.floor(time)
-            document.querySelector('.time__number-months').innerHTML = Math.floor((time % 1) * 10)
+            setTime()
         })
     }
     option.remove()
@@ -315,10 +315,9 @@ addRangeInputButtons.forEach(btn => {
         landAreaRangeInput.value = Math.ceil(landArea)
         landAreaRangeInput.style.backgroundSize = (landAreaRangeInput.value - landAreaRangeInput.min) * 100 / (landAreaRangeInput.max - landAreaRangeInput.min) + '% 100%'
         calculateBudget()
-        document.querySelector('.budget__sum').innerHTML = budget
+        setBudget()
         calculateTime()
-        document.querySelector('.time__number-years').innerHTML = Math.floor(time)
-        document.querySelector('.time__number-months').innerHTML = Math.floor((time % 1) * 10)
+        setTime()
     });
 })
 function deleteRangeElement(e) {
@@ -339,10 +338,9 @@ function deleteRangeElement(e) {
     landAreaRangeInput.value = Math.ceil(landArea)
     landAreaRangeInput.style.backgroundSize = (landAreaRangeInput.value - landAreaRangeInput.min) * 100 / (landAreaRangeInput.max - landAreaRangeInput.min) + '% 100%'
     calculateBudget()
-    document.querySelector('.budget__sum').innerHTML = budget
+    setBudget()
     calculateTime()
-    document.querySelector('.time__number-years').innerHTML = Math.floor(time)
-    document.querySelector('.time__number-months').innerHTML = Math.floor((time % 1) * 10)
+    setTime()
 
 }
 deleteRangeInputButtons.forEach(btn => {
@@ -353,7 +351,7 @@ document.body.addEventListener('input', function (e) {
         handleInputChange(e)
         updateContent(e.target, e.target.parentNode.querySelector('span'), e.target.parentNode.querySelector('output'))
     }
-});
+})
 rangeContainers.forEach(el => {
     const input = el.querySelector('input')
     const span = el.querySelector('span')
@@ -462,10 +460,9 @@ function handleInputChange(e) {
             const val = target.value
             target.style.backgroundSize = (val - min) * 100 / (max - min) + '% 100%'
             calculateBudget()
-            document.querySelector('.budget__sum').innerHTML = budget
+            setBudget()
             calculateTime()
-            document.querySelector('.time__number-years').innerHTML = Math.floor(time)
-            document.querySelector('.time__number-months').innerHTML = Math.floor((time % 1) * 10)
+            setTime()
             return
         } else if (e.target.id === 'rangevalueplot') {
             target = document.getElementById('rangeland')
@@ -552,10 +549,9 @@ function handleInputChange(e) {
         const val = e.target.value
         target.style.backgroundSize = (val - min) * 100 / (max - min) + '% 100%'
         calculateBudget()
-        document.querySelector('.budget__sum').innerHTML = budget
+        setBudget()
         calculateTime()
-        document.querySelector('.time__number-years').innerHTML = Math.floor(time)
-        document.querySelector('.time__number-months').innerHTML = Math.floor((time % 1) * 10)
+        setTime()
         return
     }
     const min = target.min
@@ -596,10 +592,9 @@ function handleInputChange(e) {
     }
 
     calculateBudget()
-    document.querySelector('.budget__sum').innerHTML = budget
+    setBudget()
     calculateTime()
-    document.querySelector('.time__number-years').innerHTML = Math.floor(time)
-    document.querySelector('.time__number-months').innerHTML = Math.floor((time % 1) * 10)
+    setTime()
 }
 
 rangeInputs.forEach(input => {
@@ -614,12 +609,40 @@ function calculateBudget() {
 function calculateTime() {
     if (houseArea < 600) {
         time = Math.ceil(1 * decoration[(selectedDecoration.id)] * 10) / 10
-    } else if (houseArea >= 600 && (houseArea + landArea) <= 1200) {
+    } else if (houseArea >= 600 && houseArea  <= 1355) {
         time = Math.ceil(1.5 * decoration[(selectedDecoration.id)] * 10) / 10
     }
 }
+function updateYearAndMonthDisplay(month) {
+    if (month === 0) {
+        document.querySelector('.time__month').innerHTML = ""
+    } else if (month === 1) {
+        document.querySelector('.time__month').innerHTML = "месяц"
+    } else if (month >= 2 && month <= 4) {
+        document.querySelector('.time__month').innerHTML = "месяца"
+    } else if (month >= 5 && month <= 11) {
+        document.querySelector('.time__month').innerHTML = "месяцев"
+    } 
+    
+    if (+years.innerHTML === 1) {
+        document.querySelector('.time__year').innerHTML = "год"
+    } else if (+years.innerHTML >= 2 && +years.innerHTML <= 4) {
+        document.querySelector('.time__year').innerHTML = "года"
+    } else if (+years.innerHTML >= 5) {
+        document.querySelector('.time__year').innerHTML = "лет"
+    }
+}
+function setTime() {
+    years.innerHTML = Math.floor(time)
+    let month = Math.floor((time % 1) * 10)
+    months.innerHTML = month === 0 ? "" : month
+    updateYearAndMonthDisplay(month)
+}
+function setBudget() {
+    budgetEl.innerHTML = budget
+}
 calculateBudget()
 calculateTime()
-document.querySelector('.time__number-years').innerHTML = Math.floor(time)
-document.querySelector('.time__number-months').innerHTML = Math.floor((time % 1) * 10)
-document.querySelector('.budget__sum').innerHTML = budget 
+setBudget()
+setTime()
+
